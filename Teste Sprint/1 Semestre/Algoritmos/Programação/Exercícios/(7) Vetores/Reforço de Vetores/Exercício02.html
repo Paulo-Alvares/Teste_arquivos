@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Digite uma frase: 
+    <br>
+    <input placeholder="Frase" id="in_frase" onkeyup="mostrar_palavra()">
+
+    <br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+    var palavra = []
+    var vezes = []
+
+    function mostrar_palavra(){
+        
+        var frase = in_frase.value 
+        
+        var pocisao_letra = frase.length - 1
+        var letra = frase[pocisao_letra]
+        
+        if(palavra.indexOf(letra) < 0){
+            palavra.push(letra)
+            vezes.push(1)
+        }
+        else{
+            var posicao = palavra.indexOf(letra)
+            vezes[posicao] += 1
+        }
+
+        var mensagem = ''
+        for(var i = 0; i < palavra.length; i++){
+            mensagem += `"${palavra[i]}" -> usado ${vezes[i]} vezes<br>`
+        }
+        
+        if(frase == ''){
+            div_mensagem.innerHTML = ''
+            palavra = []
+            vezes = []
+        }
+        else{
+            div_mensagem.innerHTML = mensagem
+        }
+    }
+</script>

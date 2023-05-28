@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="A partir de qual número avaliar" id="partir"><br>
+    <input placeholder="Até qual número analisar" id="ate"><br>
+    <button onclick="analisar()">Analisar</button>
+    <div id="analise"></div>
+</body>
+
+</html>
+
+<script>
+    function analisar() {
+        var comeco = Number(partir.value)
+        var final = Number(ate.value)
+        var contador = 1
+        var contprimo = 0
+
+        analise.innerHTML = ""
+
+        if (comeco < 0 || final < comeco) {
+            alert(`Insira valores válidos para a operação (maior que 0 e maior que o primeiro valor)`)
+        } else {
+            while (contador <= final) {
+                if (contador % 2 == 0 || contador % 3 == 0 || contador % 5 == 0 || contador % 7 == 0 || contador % 11 == 0 || contador % 13 == 0) {
+                    if (contador % 2 == 0) {
+                        analise.innerHTML += `O número ${contador} é divisível por 2 <br>`
+                        contador++
+                        contprimo++
+                    } else if (contador % 3 == 0) {
+                        analise.innerHTML += `O número ${contador} é divisível por 3 <br>`
+                        contador++
+                        contprimo++
+                    } else if (contador % 5 == 0) {
+                        analise.innerHTML += `O número ${contador} é divisível por 5 <br>`
+                        contador++
+                        contprimo++
+                    } else if (contador % 7 == 0) {
+                        analise.innerHTML += `O número ${contador} é divisível por 7 <br>`
+                        contador++
+                        contprimo++
+                    } else if (contador % 11 == 0) {
+                        analise.innerHTML += `O número ${contador} é divisível por 11 <br>`
+                        contador++
+                        contprimo++
+                    } else {
+                        analise.innerHTML += `O número ${contador} é divisível por 13 <br>`
+                        contador++
+                        contprimo++
+                    } 
+                } else{
+                    analise.innerHTML += `O número ${contador} não é divisível por nenhum dos números primos principais <br>`
+                    contador++
+                }
+            }
+        }
+        analise.innerHTML += `<br>O intervalo de ${comeco} a ${final} tem ${contador} números, sendo que ${contprimo} números são divisíveis por algum número primo.`
+    }
+</script>

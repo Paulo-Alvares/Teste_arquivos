@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Altura Inicial" id="alturai"><br>
+    <input placeholder="Altura Final" id="alturaf"><br>
+    <input placeholder="Seu Nome" id="nome"><br>
+    <input placeholder="Sua Altura" id="altura"><br>
+    <button onclick="checar()">Cadastrar</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function checar(){
+        var ali = Number(alturai.value)
+        var alf = Number(alturaf.value)
+        var nom = nome.value
+        var al = Number(altura.value)
+
+        if(ali < 1){
+            alert(`Não seguir em frente`)
+        } else if(ali > alf){
+            alert(`Não seguir em frente`)
+        } else if(al > ali && al < alf){
+            resultado.innerHTML += `O candidato ${nom} com altura de ${al} participará do processo de seleção de piloto<br>`
+        } else{
+            resultado.innerHTML += `Infelizmente o candidato ${nom} com altura de ${al} não atende os requisitos<br>`
+        }
+    }
+</script>

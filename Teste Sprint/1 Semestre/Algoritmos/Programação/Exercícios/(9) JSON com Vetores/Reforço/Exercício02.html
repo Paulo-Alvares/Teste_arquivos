@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Analíse de performance de alunos - Registro</h1>
+    Entre com o nome do aluno: <input id="in_aluno"><br>
+    Entre com a nota do aluno: <input id="in_nota"><br>
+    <button onclick="registrar()">Registrar</button>
+    <button onclick="analisar()">Analisar</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    var alunos = []
+
+    function registrar() {
+        var name = in_aluno.value
+        var note = Number(in_nota.value)
+
+        resultado.innerHTML = ''
+
+        if (name == "" || note == "") {
+            alert('Campos em branco, preencha para continuar')
+        } else if (note < 0 || note > 10) {
+            alert('Valor invalido para nota, preencha corretamente para continuar')
+        } else {
+            var dados = {
+                nome: name,
+                nota: note
+            }
+            alunos.push(dados)
+
+            in_aluno.value = ''
+            in_nota.value = ''
+
+            for (var i = alunos.length - 1; i >= 0; i--) {
+                var atual = alunos[i]
+                resultado.innerHTML += `Nome: ${atual.nome}<br>Nota:${atual.nota}<br><br>`
+            }
+        }
+
+    }
+
+    function analisar() {
+        resultado.innerHTML = ''
+        resultado.innerHTML += `<h1>Analíse de performance de alunos - Pesquisa</h1> Entre com o intervalo de notas: <input placeholder="De" id="in_de"><input placeholder="Até" id="in_ate"><br><button onclick="pesquisar()">Pesquisar</button><br><br><h1>Pesquisa alternativa</h1><select id="in_filtro">
+        <option value="">-Escolha um filtro-</option>
+        <option value="nome">Nome</option>
+        <option value="maior">Nota maior que</option>
+        <option value="menor">Nota menor que</option>
+    </select><br><input placeholder="Valor do Filtro" id="in_valor"><button onclick="aplicar()">Aplicar Filtros</button>`
+    }
+
+    function pesquisar() {
+        var de = Number(in_de.value)
+        var ate = Number(in_ate.value)
+        var maior = 0
+        var soma = 0
+        var conteae = 0
+
+        resultado.innerHTML = ''
+
+        if (de < 0 || de > 10 || ate < 0 || ate > 10) {
+            alert('Campos com valores invalidos, preencha corretamente para continuar')
+        } else if (de > ate) {
+            alert('Campo de início maior que o campo final, preencha corretamente para continuar')
+        } else {
+
+            for (var contador = 0; contador < alunos.length; contador++) {
+                var este = alunos[contador]
+                if (este.nota >= de && este.nota <= ate) {
+                    resultado.innerHTML += `O aluno: ${este.nome}<br>ficou com a nota:${este.nota}<br><br>`
+                    conteae++
+                }
+            }
+
+            for (var contadora = 0; contadora < alunos.length; contadora++) {
+                var met = alunos[contadora]
+                if (met.nota > maior) {
+                    maior = met
+                    var menor = met.nota
+                }
+            }
+
+            for (var c = alunos.length - 1; c > 0; c--) {
+                var at = alunos[c]
+                if (at.nota < menor) {
+                    menor = at
+                }
+            }
+
+            for (var con = 0; con < alunos.length; con++) {
+                var eita = alunos[con]
+                soma += eita.nota
+            }
+
+            resultado.innerHTML += `<br> Total de alunos registrados:${alunos.length}<br>Total de alunos listados:${conteae}<br>Maior nota:${maior.nota}<br>Menor nota:${menor.nota}<br>${(soma / alunos.length).toFixed(2)}`
+        }
+    }
+
+    function aplicar() {
+        var valor = in_valor.value
+        var filtro = in_filtro.value
+        var maior = 0
+        var soma = 0
+        var conteae = 0
+
+        resultado.innerHTML = ''
+
+        if (valor < 0 || valor > 10) {
+            alert('Campo de filtro com valor invalído, preencha corretamente para continuar')
+        } else {
+            if (filtro == 'nome') {
+                for (var contador = 0; contador < alunos.length; contador++) {
+                    var este = alunos[contador]
+                    if (este.nome == valor) {
+                        resultado.innerHTML += `O aluno: ${este.nome}<br>ficou com a nota:${este.nota}<br><br>`
+                        conteae++
+                    }
+                }
+            } else if (filtro == 'maior') {
+                for (var contador = 0; contador < alunos.length; contador++) {
+                    var este = alunos[contador]
+                    if (este.nota >= valor) {
+                        resultado.innerHTML += `O aluno: ${este.nome}<br>ficou com a nota:${este.nota}<br><br>`
+                        conteae++
+                    }
+                }
+            } else {
+                for (var contador = 0; contador < alunos.length; contador++) {
+                    var este = alunos[contador]
+                    if (este.nota <= valor) {
+                        resultado.innerHTML += `O aluno: ${este.nome}<br>ficou com a nota:${este.nota}<br><br>`
+                        conteae++
+                    }
+                }
+            }
+
+
+            for (var contadora = 0; contadora < alunos.length; contadora++) {
+                var met = alunos[contadora]
+                if (met.nota > maior) {
+                    maior = met
+                    var menor = met.nota
+                }
+            }
+
+            for (var c = alunos.length - 1; c > 0; c--) {
+                var at = alunos[c]
+                if (at.nota < menor) {
+                    menor = at
+                }
+            }
+
+            for (var con = 0; con < alunos.length; con++) {
+                var eita = alunos[con]
+                soma += eita.nota
+            }
+
+            resultado.innerHTML += `<br> Total de alunos registrados:${alunos.length}<br>Total de alunos listados:${conteae}<br>Maior nota:${maior.nota}<br>Menor nota:${menor.nota}<br>${(soma / alunos.length).toFixed(2)}`
+        }
+    }
+</script>

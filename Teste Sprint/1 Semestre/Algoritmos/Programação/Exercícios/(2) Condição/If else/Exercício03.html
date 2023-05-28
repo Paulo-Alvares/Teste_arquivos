@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bom-Doce</title>
+</head>
+
+<body>
+    Insira a quantidade de chocolates comprados: <input id="chocolate"><br>
+    <button onclick="avaliar()">Compra</button>
+    <div id="analise"></div>
+</body>
+
+</html>
+
+<script>
+    function avaliar(){
+        if(chocolate.value <= 12){
+            analise.innerHTML = `O valor da sua compra foi de: ${chocolate.value*3}R$`
+        }else{
+            analise.innerHTML = `O valor da sua compra foi de: ${chocolate.value*2.50}R$`
+        }
+    }
+</script>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza</title>
+</head>
+<body>
+    Sabor da pizza: <input id="sabor"><br>
+    Preço da pizza: <input id="preco"><br>
+    Quantos amigos vão comer: <input id="amigos"><br>
+    <button onclick="pedido()">Pedir Pizza</button><br>
+    Status:
+    <div id="div_status"></div>
+</body>
+</html>
+<script>
+    function pedido(){
+        div_status.innerHTML = `A pizza de ${sabor.value} custa R$${preco.value} e cada amigo vai pagar R$${Number(preco.value) / Number(amigos.value)}`
+    }
+</script>

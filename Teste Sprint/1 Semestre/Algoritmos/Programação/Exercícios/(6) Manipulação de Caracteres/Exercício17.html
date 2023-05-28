@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="jogo">Números Pares: 0 <br> Número Impares: 0</div>
+    <button onclick="sorteio()">Sortear Número</button>
+    <div id="numero">Número sorteado:</div>
+</body>
+
+</html>
+
+<script>
+    var contadorpar = 0
+    var contadorimpar = 0
+    function sorteio(){
+        var sorte = parseInt(-30 + Math.random() * -9)
+
+        numero.innerHTML =''
+        
+
+        if(sorte % 2 == 0){
+            contadorpar++
+        } else{
+            contadorimpar++
+        }
+
+        numero.innerHTML += `Número sorteado: ${sorte}`
+        jogo.innerHTML = `Números Pares: ${contadorpar} <br> Números Impares: ${contadorimpar}`
+    }
+</script>

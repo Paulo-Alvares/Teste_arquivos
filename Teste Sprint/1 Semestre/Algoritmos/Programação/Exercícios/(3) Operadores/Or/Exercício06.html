@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doc</title>
+</head>
+
+<body>
+    <button onclick="clicar()">Clique Cabalísticos</button>
+    <div id="resultado">Você ja clicou 0 vezes</div>
+</body>
+
+</html>
+
+<script>
+    var cliques = 0;
+
+    function clicar(){
+        cliques++;
+        resultado.innerHTML = `Você ja clicou ${cliques} vezes`
+
+        if(cliques == 3 || cliques == 4 || cliques == 7 || cliques == 10){
+            alert(`Você clicou ${cliques} vezes e Juliana gosta desse número!`)
+        }
+    }
+</script>

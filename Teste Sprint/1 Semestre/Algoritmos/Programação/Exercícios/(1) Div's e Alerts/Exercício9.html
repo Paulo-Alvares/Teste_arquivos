@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    Digite o primeiro valor: <input id="valor1"><br>
+    Digite o segundo valor: <input id="valor2"><br>
+    <button onclick="soma()">Soma</button><br><br>
+    <div id="div_soma"></div>
+    <button onclick="diferenca()">Diferença</button><br><br>
+    <div id="div_diferenca"></div>
+    <button onclick="produto()">Produto</button><br><br>
+    <div id="div_produto"></div>
+    <button onclick="razao()">Razão</button><br><br>
+    <div id="div_razao"></div>
+</body>
+</html>
+<script>
+    function soma(){
+        div_soma.innerHTML = Number(valor1.value) + Number(valor2.value)
+    }
+
+    function diferenca(){
+        div_diferenca.innerHTML = Number(valor1.value) - Number(valor2.value)
+        
+    }
+
+    function produto(){
+        div_produto.innerHTML = Number(valor1.value) * Number(valor2.value)
+        
+    }
+
+    function razao(){
+        div_razao.innerHTML = Number(valor1.value) / Number(valor2.value)
+        
+    }
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Sua Idade" id="in_idade"><br>
+    <button onclick="analisar()">Ver Pontos</button> 
+    <div id="pontos">1. Já passou pela infância:<br> 2. Já passou pela adolescencia:<br> 3. Já é um idoso: <br> Total de pontos: 00/80</div>
+</body>
+
+</html>
+
+<script>
+    function analisar(){
+        var idade = Number(in_idade.value)
+        var infancia = idade <= 12
+        var adolescencia = idade >= 12 && idade <= 18 || idade < 65
+        var idoso = idade >= 65
+        var soma = 0
+
+        if(infancia){
+            var soma = 10
+            pontos.innerHTML = `1. Já passou pela infância: ${infancia}<br> 2. Já passou pela adolescencia: ${adolescencia} <br> 3. Já é um idoso: ${idoso} <br> Total de pontos: ${soma}/80` 
+        } else if (adolescencia){
+            var soma = 30
+            pontos.innerHTML = `1. Já passou pela infância: ${!infancia}<br> 2. Já passou pela adolescencia: ${adolescencia} <br> 3. Já é um idoso: ${idoso} <br> Total de pontos: ${soma}/80` 
+        } else{
+            var soma = 80
+            pontos.innerHTML = `1. Já passou pela infância: ${!infancia}<br> 2. Já passou pela adolescencia: ${!adolescencia} <br> 3. Já é um idoso: ${idoso} <br> Total de pontos: ${soma}/80`
+        }
+    }
+</script>

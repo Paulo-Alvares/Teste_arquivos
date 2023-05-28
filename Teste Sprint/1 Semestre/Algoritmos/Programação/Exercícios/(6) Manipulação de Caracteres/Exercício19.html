@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Seu nome" id="in_nome"><br>
+    <input placeholder="Insira 1 número da sorte" id="num_sorte1"><br>
+    <input placeholder="Insira 1 número da sorte" id="num_sorte2"><br>
+    <input placeholder="Insira 1 número da sorte" id="num_sorte3"><br>
+    <button onclick="ver()">Ver a lua!</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    var contador = 0
+    function ver() {
+        var nome = in_nome.value
+        var num1 = Number(num_sorte1.value)
+        var num2 = Number(num_sorte2.value)
+        var num3 = Number(num_sorte3.value)
+        var dia = parseInt(1 + Math.random() * 30)
+
+        resultado.innerHTML = ``
+        contador++
+
+        resultado.innerHTML += `Dia:${dia} <br><br>`
+        if (dia >= 1 && dia <= 7){
+            resultado.innerHTML += `Lua Nova <br> <img src="https://cdn.shopify.com/s/files/1/1061/1924/files/Dark_moon_emoji_icon_png_200x200.png">`
+        } else if(dia >= 8 && dia <= 16){
+            resultado.innerHTML += `Lua Cheia <br> <img src="https://cdn.shopify.com/s/files/1/1061/1924/files/Full_moon_emoji_icon_png_200x200.png">`
+        } else if(dia >=17 && dia <=22){
+            resultado.innerHTML += `Lua Minguante <br> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6npO1qj152UWo5JHr8rF-WqIlg4ojlUevLg&usqp=CAU" widht="200px">`
+        } else{
+            resultado.innerHTML += `Lua Crescente <br> <img src="https://cdn.shopify.com/s/files/1/1061/1924/files/Waning_crescent_moon_emoji_icon_png_200x200.png">`
+        }
+
+        if(num1 == dia || num2 == dia || num3 == dia){
+            if(num1 == dia){
+                resultado.innerHTML += `<br><br> Parabéns, ${nome} o seu número da sorte ${num1} foi sorteado após ${contador} sorteios!`
+            } else if(num2 == dia){
+                resultado.innerHTML += `<br><br> Parabéns, ${nome} o seu número da sorte ${num2} foi sorteado após ${contador} sorteios!`
+            } else{
+                resultado.innerHTML += `<br><br> Parabéns, ${nome} o seu número da sorte ${num3} foi sorteado após ${contador} sorteios!`
+            }
+        }
+    }
+</script>

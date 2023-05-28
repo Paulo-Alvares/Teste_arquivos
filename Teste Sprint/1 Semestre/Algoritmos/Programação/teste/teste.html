@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .barra {
+            display: block;
+            width: 100%;
+            height: 30px;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="barra" class="barra" style="display: none;"></div>
+    <div id="caixa"></div>
+    <div id="msg">
+
+    </div>
+
+    <div id="mostrar">
+        <input id="in_caixa">
+        <button onclick="banco()">Registrar</button>
+        <div id="resultado"></div>
+    </div>
+</body>
+
+</html>
+<script>
+    var deposito = 0;
+    var carteira = 0;
+
+    function banco() {
+        deposito = Number(in_caixa.value);
+        if (deposito < 100 || deposito > 5000) {
+            alert('valor tem que ser entre 100 e 5000')
+
+        } else {
+            mostrar.style.display = 'block'
+            barra.style.display = "block";
+            carteira = deposito
+            mostrar.innerHTML = `<br><input type="text" id="inSaque"> <br> <button onclick="saquee()"> Efetuar saque</button>`
+            caixa.innerHTML = `Total de dinheiro no caixa: ${deposito}<br>`
+
+        }
+
+    }
+
+    var largura = 100
+
+    function saquee() {
+
+        var saque = Number(inSaque.value);
+        if (saque > 0) {
+
+            var porcento = ((saque / carteira) * 100);
+
+            if (deposito <= 0) {
+                alert("Caixa sem dinheiro")
+                msg.innerHTML = "Caixa sem dinheiro!";
+
+            }
+            else if (saque > deposito) {
+                alert("Valor indisponivel no caixa")
+                return false
+            } else {
+
+                deposito = deposito - saque;
+
+                caixa.innerHTML = `Total de dinheiro no caixa: ${deposito}<br>`
+                largura = largura - porcento
+                barra.style.width = largura + '%';
+
+            }
+            // caixa.innerHTML = `${deposito}<input type="text" id="inSaque"> <br> <button onclick="saque()"> Efetuar saque</button>`
+
+            if (deposito == 0) {
+                caixa.innerHTML = `R$ ${deposito.toFixed(2)}`
+                mostrar.innerHTML = ""
+            } else if (deposito < 0) {
+                alert('Valor indisponível!')
+            }
+        } else {
+            alert('Erro, saque inválido!')
+        }
+    }
+
+
+
+</script>

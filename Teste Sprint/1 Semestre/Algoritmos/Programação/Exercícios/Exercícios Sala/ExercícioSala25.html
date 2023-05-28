@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Nome da fruta" id="fruta">
+    <input placeholder="Preço da fruta" id="preco">
+    <button onclick="compra()">Vou Comprar?</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function compra(){
+        var fruit = fruta.value
+        var valor = Number(preco.value)
+
+        if(fruit == `uva` && valor <= 8.50){
+            resultado.innerHTML = `Vou Comprar!`
+        } else{
+            resultado.innerHTML = `Sem fruta hoje :(`
+        }
+    }
+</script>

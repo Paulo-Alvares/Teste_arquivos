@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicativo de Viagens</title>
+</head>
+
+<body>
+    Insira a distância da corrida em Km:<input id="distancia"><br>
+    Insira o volume de chamadas (de 0 a 100): <input id="volume"><br>
+    <button onclick="calcular()">Calcular custo da viagem</button>
+    <div id="resultado">O valor final de sua corrida, aparecerá aqui</div>
+    <div id="resultado2"></div>
+</body>
+
+</html>
+
+<script>
+    function calcular(){
+        var taxa = Number(distancia.value * 1.50) + 7
+        var taxaalt = taxa * 0.95
+        var taxaalt2 = taxa * 1.50
+        if(volume.value < 20){
+            resultado.innerHTML = `O valor final da corrida para o cliente será de R$ ${taxaalt}`
+            resultado2.innerHTML = `O valor descontado do motorista será ${taxaalt * 0.02}, logo ele receberá um valor líquido de ${taxaalt - (taxaalt * 0.02)}`
+        }else{
+            resultado.innerHTML = `O valor final da corrida para o cliente será de R$ ${taxaalt2}`
+            resultado2.innerHTML = `O valor descontado do motorista será ${taxaalt2 * 0.02}, logo ele receberá um valor líquido de ${taxaalt2 - (taxaalt2 * 0.02)}`
+        }
+    }
+</script>

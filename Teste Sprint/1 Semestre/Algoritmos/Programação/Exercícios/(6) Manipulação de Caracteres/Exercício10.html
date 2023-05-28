@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="joga1()">Jogador 1, jogar dadinho</button>
+    <div id="dado1">Dado 1:</div>
+    <button onclick="joga2()">Jogador 2, jogar dadinho</button>
+    <div id="dado2">Dado 2:</div>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    var sorte1 = 0
+    var sorte2 = 0
+    function joga1() {
+        sorte1 = parseInt(1 + Math.random() * 6)
+
+        resultado.innerHTML = ''
+        dado1.innerHTML = ''
+        dado2.innerHTML = ''
+        dado1.innerHTML += `Dado 1: ${sorte1}`
+    }
+
+    function joga2() {
+        sorte2 = parseInt(1 + Math.random() * 6)
+
+        resultado.innerHTML = ''
+        dado2.innerHTML = ''
+        dado2.innerHTML += `Dado 2: ${sorte2}`
+
+        if (sorte1 > sorte2) {
+            resultado.innerHTML += `Jogador 1 venceu`
+        } else if (sorte2 > sorte1) {
+            resultado.innerHTML += `Jogador 2 venceu`
+        } else {
+            resultado.innerHTML += `Empate`
+        }
+    }
+</script>

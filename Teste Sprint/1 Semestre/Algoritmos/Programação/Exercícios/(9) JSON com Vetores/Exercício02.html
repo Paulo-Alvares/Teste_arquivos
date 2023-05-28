@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Nome de um filho" id="in_filho"><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="atualizar()">Atualizar Familia!</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    var filho = []
+    function cadastrar(){
+        var confere = in_filho.value
+        
+        if(filho.indexOf(confere) > -1){
+            alert('Não pode mais de 1 filho com o mesmo nome!')
+        } else{
+            filho.push(confere)
+        }
+        in_filho.value = ''
+    }
+
+    function atualizar(){
+        resultado.innerHTML = ` Você tem ${filho.length} filhos<br> Seu custo mensal será aproximadamente R$${(filho.length * 3000).toFixed(2)} se colocar eles em escola particular ou R$${(filho.length * 1500).toFixed(2)} se eles estudarem em escola pública`
+    }
+</script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio!!!</title>
+</head>
+
+<body>
+    <select id="opcao">
+        <option value="int">-Escolha um tipo de arroz-</option>
+        <option value="int">Integral</option>
+        <option value="bra">Branco</option>
+    </select> <br>
+    <input placeholder="Tempo de cozimento /min" id="tempo"><br>
+    <input placeholder="Quantidade de sal /gr" id="sal"><br>
+    <button onclick="analisar()">Avaliar Arroz</button>
+    <div id="resultado"></div><br>
+</body>
+
+</html>
+
+<script>
+    function analisar(){
+        var arroz = opcao.value
+        var time = Number(tempo.value)
+        var salzinho = Number(sal.value)
+
+        if(arroz == 'bra' && time == 10 && salzinho <= 10 || arroz == 'int' && time == 20 && salzinho <= 15){
+             
+            if(arroz == 'bra'){
+                resultado.innerHTML = `Arroz Perfeito! <br> <img src="https://s2.glbimg.com/o6tLIcjJCU5frvDrkz6gAVAGUPg=/1200x/smart/filters:cover():strip_icc()/s.glbimg.com/po/rc/media/2012/06/13/15/14/15/430/arroz_branco.jpg">` 
+            }else{
+                resultado.innerHTML=`Arroz Perfeito! <br> <img src="https://n2c8z6e5.rocketcdn.me/wp-content/uploads/2021/08/closeup-a-plate-of-steamed-thai-brown-rice-for-the-concept-of-well-being.jpg">` 
+            }
+            
+        } else{
+            resultado.innerHTML = `Seu arroz não está perfeito <img src="https://www.tvpop.com.br/wp-content/uploads/2022/06/erick-jacquin-masterchef-foto-reproducao-tvpop.jpg">` 
+        }
+    }
+</script>

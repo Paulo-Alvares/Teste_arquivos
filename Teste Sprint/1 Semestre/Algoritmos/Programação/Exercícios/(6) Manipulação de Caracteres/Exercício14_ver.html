@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="avalia()">Avaliar</button><br>
+    <button onclick="equipa()">Equipe</button>
+    <div id="alt"></div>
+</body>
+
+</html>
+
+<script>
+    var contador = 0
+    var soma = 0
+
+    function avalia() {
+        var sorte = parseFloat(Math.random() * (5 - 0 + 1)) + 0
+
+        alt.innerHTML = `Nota recebida: ${sorte}`
+        soma = soma + sorte
+        contador++
+
+        if (sorte >= 0 && sorte <= 0.5) {
+            alt.innerHTML += `<br>😭`
+        } else if (sorte > 0.5 && sorte <= 1.5) {
+            alt.innerHTML += `<br>😢`
+        } else if (sorte > 1.5 && sorte <= 3.5) {
+            alt.innerHTML += `<br>😐`
+        } else if (sorte > 3.5 && sorte <= 4.5) {
+            alt.innerHTML += `<br>🙂`
+        } else {
+            alt.innerHTML += `<br>😁`
+        }
+    }
+
+    function equipa() {
+        var media = soma / contador
+
+        alt.innerHTML += `<br><br>Média geral: ${media}`
+
+        if (media >= 0 && media <= 0.5) {
+            alt.innerHTML += `😭`
+        } else if (media > 0.5 && media <= 1.5) {
+            alt.innerHTML += `😢`
+        } else if (media > 1.5 && media <= 3.5) {
+            alt.innerHTML += `😐`
+        } else if (media > 3.5 && media <= 4.5) {
+            alt.innerHTML += `🙂`
+        } else {
+            alt.innerHTML += `😁`
+        }
+    }
+</script>

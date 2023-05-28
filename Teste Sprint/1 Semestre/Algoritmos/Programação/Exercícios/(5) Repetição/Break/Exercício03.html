@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="ver()">Ver minha sorte</button>
+    <div id="resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+    function ver() {
+        var cor = 0
+        var car = 0
+        resultado.innerHTML = ''
+
+        for (contador = 1; contador <= 21; contador++) {
+            var numero = parseInt(Math.random() * 3)
+            
+            if (numero == 1) {
+                resultado.innerHTML += `<img src="https://i.pinimg.com/736x/27/42/95/274295614b1f1971b08ab25420222b6a.jpg" width="130px" height="150px">`
+                cor++
+            } else {
+                resultado.innerHTML += `<img src="https://e7.pngegg.com/pngimages/608/286/png-clipart-playing-card-ace-of-hearts-suit-cards-love-rectangle.png" width="130px" height="150px">`
+                car++
+            }
+
+            if(cor == 11 || car == 11){
+                break
+            }
+        }
+
+        if (car > cor) {
+            resultado.innerHTML += `<br><br>Você tem mais sorte no jogo`
+        } else {
+            resultado.innerHTML += `<br><br>Você tem mais sorte no amor`
+        }
+    }
+</script>

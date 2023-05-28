@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Diga o que você come no café da manhã: <select id="cafe">
+        <option value=""></option>
+        <option value="ovo">Ovos</option>
+        <option value="leite">Leite de Arroz</option>
+        <option value="bacon">Bacon</option>
+    </select>
+    <br>
+    Diga o que você come no almoço: <select id="almoco">
+        <option value=""></option>
+        <option value="bife">Bife</option>
+        <option value="hamburguer">Hamburguer de Soja</option>
+        <option value="frango">Frango Grelhado</option>
+    </select>
+    <br>
+    Diga o que você come no jantar: <select id="janta">
+        <option value=""></option>
+        <option value="picanha">Picanha de Soja</option>
+        <option value="cupim">Cupim</option>
+        <option value="coracao">Coração</option>
+    </select>
+    <br>
+    <button onclick="sou()">Sou Vegano</button>
+</body>
+
+</html>
+
+<script>
+    function sou(){
+        var cof = cafe.value
+        var al = almoco.value
+        var jan = janta.value
+
+        if(cof == 'leite' && al == 'hamburguer' && jan == 'picanha'){
+            alert(`Sim, você é vegano`)
+        }else{
+            alert(`Não, você não é vegano`)
+        }
+    }
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Qual time de São Paulo você torce? <select id="opcao">
+        <option value="c">Corinthians</option>
+        <option value="p">Palmeiras</option>
+        <option value="st">Santos</option>
+        <option value="sp">São Paulo</option>
+    </select>
+    <br>
+    <button onclick="clique()">Fale sobre esse time</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function clique(){
+        var time = opcao.value
+        var escrita
+
+        if(time == 'c'){
+            escrita = `<p style="color: white; background-color: black;">Salve o Corinthians</p>`
+        } else if (time == 'p'){
+            escrita = `<p style="color: white; background-color: green;">Salve o alviverde imponente`
+        } else if (time == 'st'){
+            escrita = `<p style="color: black; background-color: white;">Agora quem da a bola é o Santos`
+        } else{
+            escrita = `<p style="color: red; background-color: black;">Salve o tricolor paulista` 
+        }
+
+        resultado.innerHTML = escrita
+    }
+</script>

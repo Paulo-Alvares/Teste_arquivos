@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select id="estacao" onchange="opcao()">
+        <option value="">- Escolha um -</option>
+        <option value="https://s1.static.brasilescola.uol.com.br/galeria/images/2d28fe1a3b1ed960bca2e3798803c6b5.jpg">Verão</option>
+        <option value="https://static.escolakids.uol.com.br/2020/07/frio-extremo.jpg">Inverno</option>
+        <option value="https://s2.static.brasilescola.uol.com.br/img/2019/09/primavera.jpg">Primavera</option>
+        <option value="https://s3.static.brasilescola.uol.com.br/be/2021/03/outono.jpg">Outono</option>
+
+    </select>
+    <br>
+    <img src="" id="imagemestacao" style="height: 200px;">
+</body>
+
+</html>
+
+<script>
+    function opcao() {
+        imagemestacao.src = estacao.value
+    }
+</script>

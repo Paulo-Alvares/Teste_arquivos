@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Qualquer Número" id="numero" onkeyup="analisar()">
+    <div id="analise"></div>
+    <div id="alt"></div>
+</body>
+
+</html>
+
+<script>
+    function analisar(){
+        var num = Number(numero.value)
+
+        if(num % 2 == 0){
+            analise.innerHTML = `É par`
+        } else{
+            analise.innerHTML = `É impar`
+        }
+
+        if(num % 7 == 0){
+            alt.innerHTML = `É multiplo de 7`
+        } else {
+            alt.innerHTML = `Não é multiplo de 7`
+        }
+    }
+</script>

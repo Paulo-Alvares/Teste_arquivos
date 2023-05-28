@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira sua idade: <input id="idade"><br><br>
+    Insira seu salário: <input id="salario"><br><br>
+    <button onclick="pitico()">Analisar Situação</button><br><br>
+    <div id="resultado">Seu resultado aparecera aqui</div>
+</body>
+
+</html>
+
+<script>
+    function pitico(){
+        var tico = Number(idade.value)
+        var gu = Number(salario.value)
+        
+        if(tico < 18 && gu < 2500){
+            resultado.innerHTML = `Menor de idade e liso!`
+        } else if(tico < 18 && gu >= 2500){
+            resultado.innerHTML = `Menor de idade e ostentação`
+        } else if(tico >= 18 && gu < 3500 ){
+            resultado.innerHTML = `Maior de idade e liso` 
+        } else if(tico >= 18 && gu >= 3500 && gu <= 7000){
+            resultado.innerHTML = `Maior de idade e ostentação`
+        } else{
+            resultado.innerHTML = `Maior de idade e mega ostentação`
+        }
+    }
+</script>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira o peso da criança: <input id="peso" onkeyup="analisar()">
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function analisar(){
+        var quilo = Number(peso.value)
+        var escrita 
+
+        if (quilo <= 13.5){
+            escrita = 'Abaixo do peso'
+        } else if (quilo == 18.3){
+            escrita = 'Peso perfeito'
+        } else if(quilo <= 21.2){
+            escrita = 'Peso na média'
+        } else{
+            escrita = 'Acima do peso'
+        }
+        resultado.innerHTML = escrita
+    }
+</script>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira o primeiro valor: <input id="valor1"><br>
+    Insira o primeiro valor: <input id="valor2"><br>
+    <button onclick="soma()">Soma</button>
+    <button onclick="subtraçao()">Subtração</button>
+    <button onclick="multiplicaçao()">Multiplicação</button>
+    <button onclick="divisao()">Divisão</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function soma(){
+        var primeiro = Number(valor1.value)
+        var segundo = Number(valor2.value)
+        var somar = primeiro + segundo
+        resultado.innerHTML = `${somar.toFixed(2)}`
+    }
+
+    function subtraçao(){
+        var primeiro = Number(valor1.value)
+        var segundo = Number(valor2.value)
+        var menos = primeiro - segundo
+        resultado.innerHTML = `${menos.toFixed(2)}`
+    }
+
+    function multiplicaçao(){
+        var primeiro = Number(valor1.value)
+        var segundo = Number(valor2.value)
+        var produto = primeiro * segundo
+        resultado.innerHTML = `${produto.toFixed(2)}`
+    }
+
+    function divisao(){
+        var primeiro = Number(valor1.value)
+        var segundo = Number(valor2.value)
+        var razao = primeiro / segundo
+        resultado.innerHTML = `${razao.toFixed(2)}`
+    }
+</script>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select id="opcao">
+        <option value="">-Indique o resultado-</option>
+        <option value="v">Vitória</option>
+        <option value="e">Empate</option>
+        <option value="d">Derrota</option>
+    </select><br>
+    <button onclick="registrar()">Registrar Jogo</button>
+    <input placeholder="Qual jogo" id="in_jogo" onkeyup="consulta()">
+    <div id="resultado"></div>
+    <div id="alternativa"></div>
+</body>
+
+</html>
+
+<script>
+    var registro = []
+    var contadorv = 0
+    var contadore = 0
+    var contadord = 0
+    var contador = 0
+    var total = 0
+    function registrar() {
+        var op = opcao.value
+        registro.push(op)
+        total += 1
+
+        if (op == 'v') {
+            contador += 3
+            contadorv += 1
+        } else if (op == 'e') {
+            contador += 1
+            contadore += 1
+        } else {
+            contadord += 1
+        }
+
+        resultado.innerHTML = ` O time teve: ${contadorv} vitórias, ${contadore} empates, ${contadord} derrotas <br> Pontuação total: ${contador} pontos <br> Aproveitamento: ${(contador / total) * 100 - 100}%`
+    }
+
+    function consulta() {
+        var jogo = Number(in_jogo.value) - 1
+
+        if (registro[jogo] == 'v') {
+            alternativa.innerHTML = `No ${jogo + 1}º jogo, o time venceu`
+        } else if (registro[jogo] == 'e') {
+            alternativa.innerHTML = `No ${jogo + 1}º jogo, o time empatou`
+        } else if (registro[jogo] == 'd') {
+            alternativa.innerHTML = `No ${jogo + 1}º jogo, o time perdeu`
+        } else {
+            if (jogo == -1) {
+                alternativa.innerHTML = ''
+            } else {
+                alternativa.innerHTML = `Não existe um jogo ${jogo + 1}`
+            }
+        }
+    }
+</script>

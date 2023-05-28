@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="avalia()">Avaliar</button>
+    <div id="alt"></div>
+</body>
+
+</html>
+
+<script>
+    function avalia() {
+        var sorte = Number(0 + Math.random() * 5).toFixed(1)
+
+        alt.innerHTML = `Nota recebida: ${sorte}`
+
+        if (sorte >= 0 && sorte <= 0.5){
+            alt.innerHTML += `😭`
+        } else if(sorte > 0.5 && sorte <= 1.5){
+            alt.innerHTML += `😢`
+        } else if(sorte > 1.5 && sorte <= 3.5){
+            alt.innerHTML += `😐`
+        } else if(sorte > 3.5 && sorte <= 4.5){
+            alt.innerHTML += `🙂`
+        } else{
+            alt.innerHTML += `😁`
+        }
+    }
+</script>

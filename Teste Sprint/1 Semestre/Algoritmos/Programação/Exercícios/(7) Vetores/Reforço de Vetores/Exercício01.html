@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    Digite o nome dos animais: 
+    <br>
+    <input id="in_animal">
+
+    <br><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="relatorio()">Relátorio</button>
+
+    <br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+    var animais_repetidos = []
+    var animais = []
+
+    function cadastrar(){
+        var animal = in_animal.value
+
+        animais_repetidos.push(animal)
+
+        if(animais.indexOf(animal) < 0){
+            animais.push(animal)
+        }
+        in_animal.value =''
+
+    }
+
+    function relatorio(){
+        div_mensagem.innerHTML = ``
+        var tamanho_repetido = animais_repetidos.length
+        var tamanho = animais.length
+
+        for(var i = 0; i < tamanho; i++){
+            var contador = 0
+            for(var j = 0; j < tamanho_repetido; j++){
+                if(animais[i] == animais_repetidos[j]){
+                    contador++
+                }
+            }
+            div_mensagem.innerHTML += `<br>"${animais[i]}": cadastrou ${contador} vezes `
+        }
+
+    }
+</script>

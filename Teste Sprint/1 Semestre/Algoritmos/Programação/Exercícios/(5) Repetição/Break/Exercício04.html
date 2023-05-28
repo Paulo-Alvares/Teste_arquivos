@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select id="opcao">
+        <option value="">-Selecione Um-</option>
+        <option value="1">Marvel</option>
+        <option value="2">DC</option>
+    </select><br>
+    <button onclick="ver()">Ver programação semanal na TV</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function ver() {
+        var filme = Number(opcao.value)
+        resultado.innerHTML = ""
+        
+        for(var contador = 1; contador <= 5; contador++){
+            var sorte = parseInt(Math.random() * 11)
+
+            if(filme == sorte){
+                resultado.innerHTML = `Você verá um filme que gosta no ${contador}º dia`
+                break
+            } else{
+                resultado.innerHTML = `É, ou lê um livro ou assiste um filme que não gosta mesmo`
+            }
+        }
+    }
+</script>

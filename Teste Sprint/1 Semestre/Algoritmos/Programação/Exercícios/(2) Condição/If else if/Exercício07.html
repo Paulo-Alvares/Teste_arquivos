@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira o valor para economizar: <input id="economia">
+    <button onclick="analise()">Poder de compra</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function analise(){
+        var valor = Number(economia.value)
+        var escrita 
+        if(valor <= 0){
+            escrita = 'Nada de compras &#x2639;'
+        } else if (valor <= 100){
+            escrita = 'Viajem de ida e volta pra Praia Grande'
+        } else if (valor <= 4000){
+            escrita = 'Viajem de ida e volta pra Praia Grande <br> Uma boa moto usada'
+        } else {
+            escrita = 'Viajem de ida e volta pra Praia Grande <br> Uma boa moto usada <br> Mais alguma bobagem legal'
+        }
+
+        resultado.innerHTML = escrita
+    }
+</script>

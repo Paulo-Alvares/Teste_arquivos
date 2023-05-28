@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Nome do Produto" id="nome"><br>
+    <input placeholder="Preço do Produto" id="preço"><br>
+    <input placeholder="Cupom de Desconto" id="cupom"><br>
+    <button onclick="aplicar()">Aplicar Desconto</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function aplicar() {
+        var name = nome.value.toUpperCase()
+        var valor = Number(preço.value)
+        var des = cupom.value
+
+        if (name == "" || valor == "" || des == "") {
+            if (name == "") {
+                alert(`Insira um produto para prosseguir`)
+            } else if (valor == "") {
+                alert(`insira um preço para prosseguir`)
+            } else {
+                alert(`Insira um cupom para prosseguir`)
+            }
+        } else {
+            if (name == 'TENIS' || name == 'LIVROS' || name == 'MATERIAL ESCOLAR' && des == 'GERAL_10') {
+                resultado.innerHTML = `Cupom para produtos em geral aplicado! Preço final será R$${valor * 0.9}`
+            } else if (name == 'CELULAR' || name == 'NOTEBOOK' || name == 'TABLET' && des == 'TECH_19') {
+                resultado.innerHTML = `Cupom para produtos tecnológicos foi aplicado! Preço final será R$${valor * 0.81}`
+            } else {
+                resultado.innerHTML = `Cupom não aplicado! Preencha os campos e tente novamente!`
+            }
+        }
+    }
+</script>

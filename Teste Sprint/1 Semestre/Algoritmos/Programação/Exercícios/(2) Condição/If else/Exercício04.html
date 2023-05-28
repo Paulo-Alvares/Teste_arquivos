@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Diga sua frequência: <input id="frequencia">
+    <button onclick="clica()">Analisar Frequência</button>
+    <div id="alunoruim"></div>
+    <div id="alunobom"></div>
+</body>
+
+</html>
+
+<script>
+    function clica(){
+        if(frequencia.value < 50){
+            alunobom.innerHTML = ''
+            alunoruim.innerHTML = `<img src="https://img.elo7.com.br/product/main/31AE352/squirtle-pokemon-3d.jpg" width="300px">`
+        }else{
+            alunoruim.innerHTML =''
+            alunobom.innerHTML = `<img src="http://3.bp.blogspot.com/-CacavTf2kos/Tp7HQ5VlF3I/AAAAAAAAAAk/JDOm8Z61GDo/s1600/Aluno"width="300px">`
+        }
+    }
+</script>

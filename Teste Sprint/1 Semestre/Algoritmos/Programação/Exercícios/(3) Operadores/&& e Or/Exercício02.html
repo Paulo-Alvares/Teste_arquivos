@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" placeholder="Login" id="login"><br>
+    <input type="password" placeholder="Senha" id="senha"><br>
+    <input type="text" placeholder="Código de Segurança" id="codigo"><br>
+    <button onclick="autenticar()">Autenticar</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function autenticar(){
+        var log = login.value
+        var pass = senha.value
+        var seg = Number(codigo.value)
+    
+        if(log == 'SPTECH' && pass == 'SCHOOL' || seg == 595){
+            resultado.innerHTML = `Usuário autenticado com sucesso!`
+        } else{
+            resultado.innerHTML = `Falha na autenticação`
+        }
+    }
+</script>

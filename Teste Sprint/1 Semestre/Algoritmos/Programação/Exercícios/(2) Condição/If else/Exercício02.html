@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saldo do Banco</title>
+</head>
+
+<body>
+    Insira seu saldo: <input id="saldo"><br>
+    Insira o valor a ser debitado: <input id="debito"><br>
+    <button onclick="avaliar()">Analisar Conta</button>
+    <div id="div_avaliar"></div>
+</body>
+
+</html>
+
+<script>
+    function avaliar(){
+        var valor = (Number(saldo.value) - Number(debito.value))
+        if(valor < 0){
+            div_avaliar.innerHTML = `<b style="color: red"> O saldo atual da conta corrente é: ${valor}<b>`
+            } else{
+                div_avaliar.innerHTML = `<b style="color: black"> O saldo atual da conta corrente é: ${valor}<b>`
+            }
+    }
+</script>

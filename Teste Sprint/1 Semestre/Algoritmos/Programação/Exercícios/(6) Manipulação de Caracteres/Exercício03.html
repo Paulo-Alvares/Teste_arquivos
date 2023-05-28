@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="jogar()">Jogar dado</button>
+    <div id="resultado"></div>
+    <img src="" width="200px">
+</body>
+
+</html>
+
+<script>
+    function jogar() {
+        var dado = parseInt(1 + Math.random() * 6)
+
+        resultado.innerHTML = ''
+        if (dado == 1) {
+            resultado.innerHTML += `<img src="https://images.vectorhq.com/images/previews/27e/dado-1-138329.png" width="200px">`
+        } else if (dado == 2) {
+            resultado.innerHTML += `<img src="https://png.vector.me/files/images/3/2/323094/dado_2_preview" width="200px">`
+        } else if (dado == 3) {
+            resultado.innerHTML += `<img src="https://images.vectorhq.com/images/previews/194/dado-3-138321.png" width="200px">`
+        } else if (dado == 4) {
+            resultado.innerHTML += `<img src="https://images.vectorhq.com/images/previews/6a9/dado-4-138319.png" width="200px">`
+        } else if (dado == 5) {
+            resultado.innerHTML += `<img src="https://images.vectorhq.com/images/previews/93c/dado-5-138316.png" width="200px">`
+        } else {
+            resultado.innerHTML += `<img src="https://png.vector.me/files/images/3/2/323082/dado_6_preview" width="200px">`
+        }
+
+    }
+</script>

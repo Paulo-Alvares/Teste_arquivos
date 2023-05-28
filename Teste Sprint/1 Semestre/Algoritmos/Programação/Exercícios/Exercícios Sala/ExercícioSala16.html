@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira seu salário inteiro: <input id="salario"><br>
+    <button onclick="calculo()">Calcular</button>
+</body>
+
+</html>
+
+<script>
+    function calculo(){
+    var valor = Number(salario.value)
+    var INSS = valor * 0.10
+    var IR = valor * 0.20
+    var IS = valor * (1/30)
+    var soma = INSS + IR + IS
+    var final = valor - soma
+    alert(`Apesar de seu bruto ser R$${salario.value}, após os descontos, você receberá somente R$${final.toFixed(2)}`)
+    }
+</script>

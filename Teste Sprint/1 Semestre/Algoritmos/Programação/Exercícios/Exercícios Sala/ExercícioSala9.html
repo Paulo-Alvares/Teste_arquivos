@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <h2>Informe o valor de seu carro vista</h2>
+    <input type="text" id="input_valorCarro">
+    <h2>Informe a taxa de juros ao mês</h2>
+    <input type="text" id="input_taxaJuros">
+    <h2>Informe a quantidade de parcelas</h2>
+    <input type="text" id="input_qtdParcelas">
+    <br><br>
+    <button onclick="calcularFinanciamento()">Calcular Financiamento</button>
+    <div id="output_visor"></div>
+</body>
+
+</html>
+
+<script>
+    function calcularFinanciamento() {
+        var valorCarro = Number(input_valorCarro.value);
+        var taxaJuros = Number(input_taxaJuros.value) / 100;
+        console.log(taxaJuros);
+        var qtdParcelas = Number(input_qtdParcelas.value);
+        var valorDesvalorizacao = Number(input_valorCarro.value) * 0.80;
+        var valorFinalFinanciamento = (Number(input_valorCarro.value)(taxaJuros * (qtdParcelas + 1) - 1) / (taxaJuros - 1)).toFixed(0);
+        var qtdCarrosFinanciamento = (valorFinalFinanciamento / valorCarro).toFixed(0);
+
+        output_visor.innerHTML = `Seu carro vai sair por um total de R$${valorFinalFinanciamento}. Após 1 mês, ele já vai valer só  R$${valorDesvalorizacao}. Porque comprou financiado, vai pagar o correspondente a ${qtdCarrosFinanciamento} carros`
+    }
+</script>

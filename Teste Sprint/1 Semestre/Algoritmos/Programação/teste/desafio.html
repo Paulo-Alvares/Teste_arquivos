@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Insira o nome do piloto: 
+    <br>
+    <input id="in_piloto">
+
+    <br><br>
+    <button onclick="registrar()">Registrar</button>
+    <button onclick="realizar()">Realizar Corrida</button>
+
+    <br><br>
+    <div id="resultado"></div>
+
+</body>
+</html>
+
+<script>
+
+
+    var pilotos = []
+    function registrar(){
+
+        var nome = in_piloto.value
+        if(pilotos.length <= 12){
+            var piloto = {
+                nome, 
+                combustivel: 75,
+                tempo: 0 
+            }
+            pilotos.push(piloto)
+        }
+        else{
+            alert("A quantidade máxima de pilotos foi atingida")
+        }
+
+        i++
+    }
+
+    function realizar(){
+
+        for(var i = 0; i < 15; i++){
+            var pilotinho = []
+            for(var c = 0; c < pilotos.length; c++){
+                var velocidade = 210 + parseInt(Math.random() * 81)
+                var piloto = pilotos[c]
+
+                var combustivel_atual = (velocidade * 5) / 250
+                piloto.combustivel -= combustivel_atual
+
+                var tempo = (20 / velocidade) * 60
+                tempo = Number(tempo.toFixed(2))
+                piloto.tempo += tempo
+
+
+                if(piloto.combustivel > 0){
+                    pilotinho.push(piloto)
+                    var mensagem = `Volta ${i + 1} - Piloto: ${piloto.nome} - Velocidade: ${velocidade} - Combustível: ${piloto.combustivel.toFixed(1)} - Tempo: ${tempo}<br>`
+                    resultado.innerHTML += mensagem
+                }
+            }
+            pilotos = pilotinho
+            resultado.innerHTML += `<br><br>`
+        }
+        setTimeout(() => {
+            podio()
+        }, 10000);
+    }
+
+    function podio(){
+        resultado.innerHTML = ''
+
+        var primeiro = {nome: '', tempo: 0}
+        var segundo = {nome: '', tempo: 0}
+        var terceiro = {nome: '', tempo: 0} 
+
+        var tempo_primeiro = 200
+        var tempo_segundo = 200
+        var tempo_terceiro = 200
+
+        for(var i = 0; i < pilotos.length; i++){
+            var piloto = pilotos[i]
+            var tempo_piloto = piloto.tempo
+            if(tempo_piloto < tempo_primeiro){
+                tempo_primeiro = tempo_piloto
+                primeiro = piloto
+            }
+            else if(tempo_piloto < tempo_segundo){
+                tempo_segundo = tempo_piloto
+                segundo = piloto
+            }
+            else if(tempo_piloto < tempo_terceiro){
+                tempo_terceiro = tempo_piloto
+                terceiro = piloto
+            }
+        }
+        var mensagem = `
+        1 - Carro: ${primeiro.nome} - Tempo Total: ${primeiro.tempo.toFixed(2)}
+        <br>2 - Carro: ${segundo.nome} - Tempo Total: ${segundo.tempo.toFixed(2)}
+        <br>3 - Carro: ${terceiro.nome} - Tempo Total: ${terceiro.tempo.toFixed(2)} `
+
+        resultado.innerHTML = mensagem
+    }
+
+</script>

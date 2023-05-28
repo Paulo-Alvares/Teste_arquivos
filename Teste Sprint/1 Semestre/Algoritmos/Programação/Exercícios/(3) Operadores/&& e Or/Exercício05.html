@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Vamos ver suas vantangens para sua primeira batalha: <br>
+    <select id="iniciante">
+        <option value="">-Escolha o tipo do seu Pokémon-</option>
+        <option value="agua">Água</option>
+        <option value="fogo">Fogo</option>
+        <option value="planta">Planta</option>
+    </select> <br>
+    <select id="oponente">
+        <option value="">-Escolha o tipo do Pokémon oponente-</option>
+        <option value="agua">Água</option>
+        <option value="fogo">Fogo</option>
+        <option value="planta">Planta</option>
+    </select> <br>
+    <button onclick="batalha()">Batalhar</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    var vit = 0
+    var emp = 0
+    var der = 0
+    function batalha(){
+        var eu = iniciante.value
+        var enemy = oponente.value
+
+        if(eu == 'agua' && enemy == 'fogo' || eu == 'fogo' && enemy == 'planta' || eu == 'planta' && enemy == 'agua'){
+            vit ++;
+            resultado.innerHTML = `O iniciante venceu! <br> Vitórias do Iniciante: ${vit} / Derrotas do Iniciante: ${der} / Empates: ${emp}`
+        } else if(eu == 'agua' && enemy == 'agua' || eu == 'fogo' && enemy == 'fogo' || eu == 'planta' && enemy == 'planta'){
+            emp ++;
+            resultado.innerHTML = `A batalha empatou <br> Vitórias do Iniciante: ${vit} / Derrotas do Iniciante: ${der} / Empates: ${emp}`
+        } else{
+            der ++;
+            resultado.innerHTML = `O iniciante perdeu! <br> Vitórias do Iniciante: ${vit} / Derrotas do Iniciante: ${der} / Empates: ${emp}`
+        }
+    }
+</script>

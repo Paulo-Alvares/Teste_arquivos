@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Número da Sorte" id="numero"><br>
+    <button onclick="vale()">Valendo!</button>
+</body>
+
+</html>
+
+<script>
+    function vale() {
+        var contador = 0
+        var num = parseInt(numero.value)
+        
+        if (num < 1 || num > 100) {
+            alert('Valor invalído')
+        } else {
+            while (num != sorte) {
+                var sorte = parseInt(1 + Math.random() * 100)
+                if (num == sorte) {
+                    alert(`Foram necessários ${contador} sorteios`)
+                }
+                contador++
+            }
+        }
+    }
+</script>

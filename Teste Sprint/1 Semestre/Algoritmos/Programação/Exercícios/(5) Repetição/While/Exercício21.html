@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Quantos ônibus precisa pegar?" id="qtonibus"><br>
+    <input placeholder="Quantos trens precisa pegar?" id="qttrens"><br>
+    <input placeholder="Quantos metrôs precisa pegar?" id="qtmetros"><br>
+    <button onclick="partiu()">#PartiuTrajeto</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function partiu() {
+        var bus = Number(qtonibus.value)
+        var trem = Number(qttrens.value)
+        var sub = Number(qtmetros.value)
+        var contb = 1
+        var contt = 1
+        var conts = 1
+
+        resultado.innerHTML = ""
+
+        if (bus < 0 || trem < 0 || sub < 0) {
+            if (bus < 0) {
+                alert(`Quantidade de ônibus inválida`)
+            } else if (trem < 0) {
+                alert(`Quantidade de trem inválida`)
+            } else if (sub < 0) {
+                alert(`Quantidade de metrô inválida`)
+            }
+        } else {
+            if (bus == 0 && trem == 0 && sub == 0) {
+                resultado.innerHTML += `<p style="color: yellow;">OPS... Parece que esse veio de helicóptero!!! kkk</p>`
+            } else {
+                if (bus == 0) {
+                    resultado.innerHTML += `<p style="color: red;">Não precisou pegar o busão</p>`
+                }
+
+                if (trem == 0) {
+                    resultado.innerHTML += `<p style="color: green;">Não precisou pegar o trem</p>`
+                }
+
+                if (sub == 0) {
+                    resultado.innerHTML += `<p style="color: blue;">Não precisou pegar o metrô</p>`
+                }
+            }
+            
+            while (contb <= bus) {
+                if (contb == 2 || contb >= 3) {
+                    if (contb == 2) {
+                        resultado.innerHTML += `<p style="color: red;">Pegando o ${contb}º busão - Começando a cansar</p>`
+                        contb++
+                    } else {
+                        resultado.innerHTML += `<p style="color: red;">Pegando o ${contb}º busão - Já cansado</p>`
+                        contb++
+                    }
+                } else {
+                    resultado.innerHTML += `<p style="color: red;">Pegando o ${contb}º busão</p>`
+                    contb++
+                }
+            }
+
+            while (contt <= trem) {
+                if (contt == 2 || contt >= 3) {
+                    if (contt == 2) {
+                        resultado.innerHTML += `<p style="color: green;">Pegando o ${contt}º trem - Começando a cansar</p>`
+                        contt++
+                    } else {
+                        resultado.innerHTML += `<p style="color: green;">Pegando o ${contt}º trem - Já cansado</p>`
+                        contt++
+                    }
+                } else {
+                    resultado.innerHTML += `<p style="color: green;">Pegando o ${contt}º trem</p>`
+                    contt++
+                }
+            }
+
+            while (conts <= sub) {
+                if (conts == 2 || conts >= 3) {
+                    if (conts == 2) {
+                        resultado.innerHTML += `<p style="color: blue;">Pegando o ${conts}º metrô - Começando a cansar</p>`
+                        conts++
+                    } else {
+                        resultado.innerHTML += `<p style="color: blue;">Pegando o ${conts}º metrô - Já cansado</p>`
+                        conts++
+                    }
+                } else {
+                    resultado.innerHTML += `<p style="color: blue;">Pegando o ${conts}º metrô</p>`
+                    conts++
+                }
+            }
+        }
+    }
+</script>

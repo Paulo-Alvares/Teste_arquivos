@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira seu peso: <input id="peso"><br>
+    Insira sua altura: <input id="altura"><br>
+    <button onclick="homem()">IMC Homem</button>
+    <button onclick="mulher()">IMC Mulher</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function homem(){
+        var pesar = Number(peso.value)
+        var metro = Number(altura.value)
+        var multi = metro * metro
+        var IMC = pesar / multi
+        resultado.innerHTML = `Seu IMC é: ${IMC.toFixed(2)}`
+    }
+
+    function mulher(){
+        var pesar = Number(peso.value)
+        var metro = Number(altura.value)
+        var multi = metro * metro
+        var IMC = pesar / multi
+        var IMCM = IMC * 0.90
+        resultado.innerHTML = `Seu IMC é: ${IMCM.toFixed(2)}`
+    }
+</script>

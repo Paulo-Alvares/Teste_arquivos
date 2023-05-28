@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aposentadoria 2</title>
+</head>
+<body>
+    Digite sua idade: <input id="idade"><br>
+    <button onclick="Homem()">Aposentadoria Homem</button><br>
+    <button onclick="Mulher()">Aposentadoria Mulher</button>
+    <div id="div_aposentadoria"></div>
+</body>
+</html>
+<script>
+    function Homem(){
+        div_aposentadoria.innerHTML = `Ainda faltam ${Number(70-idade.value)} anos para sua aposentadoria`
+    }
+
+    function Mulher(){
+        div_aposentadoria.innerHTML = `Ainda faltam ${Number(60-idade.value)} anos para sua aposentadoria`
+    }
+</script>

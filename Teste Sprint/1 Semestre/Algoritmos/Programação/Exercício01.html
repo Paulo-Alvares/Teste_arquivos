@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Frequencia" id="frequencia"><br>
+    <input placeholder="Nota 1" id="in_nota1"><br>
+    <input placeholder="Nota 2" id="in_nota2"><br>
+    <button onclick="calcular()">Calcular</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function calcular() {
+        var freq = Number(frequencia.value)
+        var nota1 = Number(in_nota1.value)
+        var nota2 = Number(in_nota2.value)
+        var mediaari = (nota1 + nota2) / 2
+        var frase = mediaari >= 6 && freq >= 75 ? "Parabéns, você passou" : "Tente outra vez"
+
+        resultado.innerHTML = frase
+    }
+</script>

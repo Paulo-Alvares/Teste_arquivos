@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Anos trabalhados" id="trabalho"><br>
+    <input placeholder="Kg por hectar de trigo" id="trigo"><br>
+    <input placeholder="Dias que faltou" id="dia"><br>
+    <button onclick="deu()">Deu Match?</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function deu(){
+        var tr = Number(trabalho.value)
+        var tri = Number(trigo.value)
+        var day = Number(dia.value)
+
+        if(tr >= 5 && tri >= 300 && day <= 5){
+            resultado.innerHTML = `Minha filha será sua! <br> <img src="https://cdn0.casamentos.com.br/vendor/7112/3_2/960/jpg/-r4a9253_13_267112-162808545617782.jpeg">`
+        } else{
+            resultado.innerHTML = `Deu ruim! trabalhe mais 2 anos <br> <img src="https://img.freepik.com/fotos-premium/gritando-homem-bravo_102671-5998.jpg">`
+        }
+    }
+</script>

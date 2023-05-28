@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilhete Único</title>
+</head>
+<body>
+    Valor da passagem: <input id="valor"><br>
+    Viagens por mês: <input id="viagens"><br>
+    <button onclick="economia()">Ver Econômia</button>
+    <div id="div_calculo">Sua econômia aparecerá aqui</div>
+</body>
+</html>
+<script>
+    function economia(){
+        div_calculo.innerHTML = `Você economizará R$${(parseFloat(valor.value)/2) * Number(viagens.value)} por mês`
+    }
+</script>

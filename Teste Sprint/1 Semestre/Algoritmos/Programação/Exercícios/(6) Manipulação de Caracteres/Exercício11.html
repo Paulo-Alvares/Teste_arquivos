@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="jogar()">Jogar!</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function jogar() {
+        var jogada1 = parseInt(1 + Math.random() * 3)
+        var jogada2 = parseInt(1 + Math.random() * 3)
+
+        resultado.innerHTML = ''
+
+        if (jogada1 == 1) {
+            resultado.innerHTML += `<img src="https://cdn.pixabay.com/photo/2014/12/22/00/03/rocks-576666_1280.png" width="300px">`
+        } else if (jogada1 == 2) {
+            resultado.innerHTML += `<img src="https://imagensemoldes.com.br/wp-content/uploads/2020/08/Comunicado-de-Papel-PNG.png" width="300px">`
+        } else {
+            resultado.innerHTML += `<img src="https://cdn-icons-png.flaticon.com/512/40/40706.png" width="300px">`
+        }
+
+        if (jogada2 == 1) {
+            resultado.innerHTML += `  <img src="https://cdn.pixabay.com/photo/2014/12/22/00/03/rocks-576666_1280.png" width="300px">`
+        } else if (jogada2 == 2) {
+            resultado.innerHTML += `  <img src="https://imagensemoldes.com.br/wp-content/uploads/2020/08/Comunicado-de-Papel-PNG.png" width="300px">`
+        } else {
+            resultado.innerHTML += `  <img src="https://cdn-icons-png.flaticon.com/512/40/40706.png" width="300px">`
+        }
+
+        if (jogada1 == 1 && jogada2 == 2) {
+            resultado.innerHTML += `<br><br> Jogador ${2} venceu, pois papel vence pedra`
+        } else if (jogada1 == 2 && jogada2 == 3) {
+            resultado.innerHTML += `<br><br> Jogador ${2} venceu, pois tesoura vence papel`
+        } else if (jogada1 == 3 && jogada2 == 1) {
+            resultado.innerHTML += `<br><br> Jogador ${2} venceu, pois pedra vence tesoura`
+        } else if (jogada1 == 1 && jogada2 == 3) {
+            resultado.innerHTML += `<br><br> Jogador ${1} venceu, pois pedra vence tesoura`
+        } else if (jogada1 == 3 && jogada2 == 2) {
+            resultado.innerHTML += `<br><br> Jogador ${1} venceu, pois tesoura vence papel`
+        } else if (jogada1 == 2 && jogada2 == 1) {
+            resultado.innerHTML += `<br><br> Jogador ${1} venceu, pois papel vence pedra`
+        } else {
+            resultado.innerHTML += `<br><br> Empate! Jogue novamente`
+        }
+    }
+</script>

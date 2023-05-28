@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="piloto">
+        <h2>Pilotos:</h2>
+        <input placeholder="Altura Inicial" id="alturai"><br>
+        <input placeholder="Altura Final" id="alturaf"><br>
+    </div>
+
+    <div id="atleta">
+        <h2>Atletas de Basquete:</h2>
+        <input placeholder="Altura Inicial" id="alturaib"><br>
+        <input placeholder="Altura Final" id="alturafb"><br>
+        <button onclick="checar()">Selecionar</button>
+    </div>
+    <div id="alternativa"></div>
+</body>
+
+</html>
+
+<script>
+    function checar() {
+        var alpi = Number(alturai.value)
+        var alpf = Number(alturaf.value)
+        var alai = Number(alturaib.value)
+        var alaf = Number(alturafb.value)
+
+        if (alpi < 1 || alai < 1.5 || alpf < alpi || alaf < alai) {
+            alert('Não seguir em frente')
+        }
+
+        piloto.innerHTML = ` `
+        atleta.innerHTML = ` `
+        alternativa.innerHTML = `<h1>Processo de seleção de novos atletas</h1>
+        <div id="subtitulo1"></div>
+        <div id="subtitulo2"></div>
+        Insira seu nome: <input id="nome"><br>
+        Insira sua altura: <input id="altura"><br>
+        Escolha sua modalidade: <select id="num">
+            <option value=" ">-Escolha uma modalidade-</option>
+            <option value="1">Piloto</option>
+            <option value="2">Jogador de Basquete</option>
+        </select>
+        <br>
+        <button onclick="tlgd()">Resultado</button>
+        <div id="resultado"></div>`
+
+        subtitulo1.innerHTML = `<h3>Critério de Seleção de piloto – altura entre ${alpi} até ${alpf}</h3>`
+        subtitulo2.innerHTML = `<h3>Critério de Seleção de jogador de basquete – altura entre ${alai} até ${alaf}</h3>`
+
+    }
+
+    function tlgd(){
+        var alpi = Number(alturai.value)
+        var alpf = Number(alturaf.value)
+        var alai = Number(alturaib.value)
+        var alaf = Number(alturafb.value)
+        var escolha = Number(num.value)
+        
+        
+        if (escolha == 1) {
+            if (altura.value >= alpi && altura.value <= alpf) {
+                resultado.innerHTML = `O candidato ${nome.value} com altura de ${altura.value} participará do processo de seleção de piloto`
+            } else {
+                resultado.innerHTML = `Infelizmente o candidato ${nome.value} com altura de ${altura.value} não atende os requisitos`
+            }
+        } else {
+            if (altura.value >= alai && altura.value <= alaf) {
+                resultado.innerHTML = `O candidato ${nome.value} com altura de ${altura.value} participará do processo de seleção de jogador de basquete`
+            } else {
+                resultado.innerHTML = `Infelizmente o candidato ${nome.value} com altura de ${altura.value} não atende os requisitos`
+            }
+        }
+    }
+</script>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bom-Doce</title>
+</head>
+
+<body>
+    Insira a quantidade de chocolates comprados: <input id="in_chocolate"><br>
+    <button onclick="avaliar()">Compra</button>
+    <div id="analise"></div>
+</body>
+
+</html>
+
+<script>
+    function avaliar() {
+        var chocolate = in_chocolate.value
+        var valor = chocolate <= 12 ? chocolate * 3 : chocolate * 2.50
+
+        analise.innerHTML = `O valor da sua compra foi de: R$${valor}`
+    }
+</script>

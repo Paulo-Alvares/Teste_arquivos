@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Insira um número" id="numero"><br>
+    <input placeholder="Insira uma frase" id="frase"><br>
+    <button onclick="ver()">Papagaio</button>
+</body>
+
+</html>
+
+<script>
+    function ver(){
+        var valor = Number(numero.value)
+        var texto = frase.value
+        var contador = 1
+
+        while(contador <= valor){
+            alert(`${texto}`)
+            contador++
+        }
+    }
+</script>

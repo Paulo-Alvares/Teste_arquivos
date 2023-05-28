@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Limite Superior" id="limite_sup"><br>
+    <button onclick="ver()">Contar</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function ver() {
+        var sup = Number(limite_sup.value)
+        var contador = 5
+
+        resultado.innerHTML = ''
+
+        if (sup < 100) {
+            for (; contador <= sup; contador++) {
+                    resultado.innerHTML += `${contador} <br>`
+            }
+        } else {
+                alert('Valor superior deve ser menor que 100')
+        }
+    }
+</script>

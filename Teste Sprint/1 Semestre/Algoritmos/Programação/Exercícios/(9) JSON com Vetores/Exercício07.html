@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Analíse de performance de alunos - Registro</h1>
+    Entre com o nome do aluno: <input id="in_nome"><br>
+    Entre com a nota do aluno: <input id="in_nota"><br>
+    <button onclick="registrar()">Registrar</button>
+    <button onclick="analisar()">Analisar</button>
+    <div id="resultado"></div>
+    <div id="alternativa"></div>
+</body>
+
+</html>
+
+<script>
+    var alunos = []
+    var contlist = 0
+    function registrar() {
+        resultado.innerHTML = ''
+        if (in_nome.value == '' || in_nota.value == '') {
+            alert('Campos em branco, por favor preencha corretamente')
+        } else if (in_nota.value < 0 || in_nota.value > 10) {
+            alert('Valor de nota invalido')
+        } else {
+            var aluno = {
+                nome: in_nome.value,
+                nota: Number(in_nota.value)
+            }
+            alunos.push(aluno)
+
+            in_nome.value = ''
+            in_nota.value = ''
+
+            for (var i = alunos.length - 1; i >= 0; i--) {
+                var atual = alunos[i]
+                resultado.innerHTML += `Nome do aluno: ${atual.nome}<br> Nota do aluno: ${atual.nota}<br><br>`
+            }
+        }
+    }
+
+    function analisar() {
+        resultado.innerHTML = ''
+        alternativa.innerHTML = `<h1>Analíse de performance de alunos - Pesquisa</h1> Entre com o intervalo de notas: <input placeholder="De" id="in_de"> <input placeholder="Até" id="in_ate"> <button onclick="pesquisar()">Pesquisar</button><br><br>`
+    }
+
+    function pesquisar() {
+        var de = in_de.value
+        var ate = in_ate.value
+        var maior = 0
+        var soma = 0
+        if (de < 0 || de > 10 || ate < 0 || ate > 10 || de > ate) {
+            if (de < 0 || de > 10) {
+                alert('Campo de pesquisa "De", está com valores inválidos para consulta')
+            }
+
+            if (ate < 0 || ate > 10) {
+                alert('Campo de pesquisa "Até", está com valores inválidos para consulta')
+            }
+
+            if (de > ate) {
+                alert('Campo de pesquisa "De", está maior doque o campo "Até", ou seja, inválido')
+            }
+        } else {
+            for (var contador = 0; contador < alunos.length; contador++) {
+                var meta = alunos[contador]
+                if (meta.nota >= de && meta.nota <= ate) {
+                    alternativa += `O aluno: ${meta.nome} ficou com a nota: ${meta.nota}<br>`
+                    contlist++
+                }
+            }
+
+            for (var contadora = 0; contadora < alunos.length; contadora++) {
+                var met = alunos[contadora]
+                if (met.nota > maior) {
+                    maior = met
+                    var menor = met.nota
+                }
+            }
+
+            for (var cont = alunos.length - 1; cont > 0; cont--) {
+                var at = alunos[cont]
+                if (at.nota < menor) {
+                    menor = at
+                }
+            }
+
+            for (var conta = 0; conta < alunos.length; conta++) {
+                var ate = alunos[conta]
+                soma += ate.nota
+            }
+
+            alternativa += `<br><br>Total de alunos registrados: ${alunos.length}<br>Total de alunos listado: ${contlist} <br> Maior Nota = ${maior} <br> Menor Nota = ${menor} Média da Nota = ${soma / alunos.length}`
+        }
+    }
+</script>

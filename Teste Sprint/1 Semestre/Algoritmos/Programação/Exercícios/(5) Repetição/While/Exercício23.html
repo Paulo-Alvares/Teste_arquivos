@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Valor guardado" id="valorguardado"><br>
+    <input placeholder="Valor poupado" id="valorpoupado"><br>
+    <input placeholder="Quantidade de meses" id="qtmeses"><br>
+    <button onclick="poupar()">Vamos Poupar</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function poupar(){
+        var gastinho = Number(valorguardado.value)
+        var guardado = gastinho
+        var poupado = Number(valorpoupado.value)
+        var mes = Number(qtmeses.value)
+        var contador = 1
+        var final = guardado
+
+        resultado.innerHTML = ""
+
+        if(guardado == "" || poupado == "" || mes == "" || poupado <= 0 || mes < 6 || mes > 20){
+            if(guardado == ""){
+                alert(`Campo de valor guardado vazio`)
+            }
+
+            if(poupado == ""){
+                alert(`Campo de valor poupado vazio`)
+            }
+
+            if(mes == ""){
+                alert(`Campo de meses vazio`)
+            }
+
+            if(poupado <= 0){
+                alert(`Valor poupado invalido`)
+            }
+
+            if(mes < 6){
+                alert(`Quantidade de meses inferior ao desejado`)
+            }
+
+            if(mes > 20){
+                alert(`Quantidade de meses superior ao desejado`)
+            }
+        } else {
+            while(contador <= mes){
+                resultado.innerHTML += `Marco tinha R$${guardado.toFixed(2)}, depois do depósito do ${contador}º mês ele ficou com ${final.toFixed(2)}<br>`
+                final = guardado + poupado
+                guardado = final
+                contador++
+            }
+
+            resultado.innerHTML += `<br><br> Você começou com R$${valorguardado.value} <br> Durante os ${contador-1} meses você poupou R$${final.toFixed(2)-gastinho-poupado} <br> E agora você tem: R$${guardado.toFixed(2)-poupado} ` 
+        }
+    }
+</script>

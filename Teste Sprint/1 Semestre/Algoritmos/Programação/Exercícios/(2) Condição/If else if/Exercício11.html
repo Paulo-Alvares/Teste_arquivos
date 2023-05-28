@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Selecione um mês do ano: <select id="selecao" onchange="opcao()">
+        <option value="J">Janeiro</option>
+        <option value="F">Fevereiro</option>
+        <option value="M">Março</option>
+        <option value="A">Abril</option>
+        <option value="Ma">Maio</option>
+        <option value="Ju">Junho</option>
+        <option value="Jul">Julho</option>
+        <option value="Ag">Agosto</option>
+        <option value="S">Setembro</option>
+        <option value="O">Outubro</option>
+        <option value="N">Novembro</option>
+        <option value="D">Dezembro</option>
+    </select>
+    <br><br>
+    <img src="" id="imagemestacao" style="height: 200px;">
+</body>
+
+</html>
+
+<script>
+    function opcao() {
+        var escolha = selecao.value
+        var imagem 
+
+        if (escolha == 'J'){
+            imagem = "https://s1.static.brasilescola.uol.com.br/galeria/images/2d28fe1a3b1ed960bca2e3798803c6b5.jpg"
+        } else if (escolha == 'F'){
+            imagem = "https://s1.static.brasilescola.uol.com.br/galeria/images/2d28fe1a3b1ed960bca2e3798803c6b5.jpg"
+        } else if (escolha == 'M'){
+            imagem = "https://s3.static.brasilescola.uol.com.br/be/2021/03/outono.jpg"
+        } else if (escolha == 'A'){
+            imagem = "https://s3.static.brasilescola.uol.com.br/be/2021/03/outono.jpg"
+        } else if (escolha == 'Ma'){
+            imagem = "https://s3.static.brasilescola.uol.com.br/be/2021/03/outono.jpg"
+        } else if (escolha == 'Ju'){
+            imagem = "https://static.escolakids.uol.com.br/2020/07/frio-extremo.jpg"
+        } else if (escolha == 'Jul'){
+            imagem = "https://static.escolakids.uol.com.br/2020/07/frio-extremo.jpg"
+        } else if (escolha == 'Ag'){
+            imagem = "https://static.escolakids.uol.com.br/2020/07/frio-extremo.jpg"
+        } else if (escolha == 'S'){
+            imagem = "https://s2.static.brasilescola.uol.com.br/img/2019/09/primavera.jpg"
+        } else if (escolha == 'O'){
+            imagem = "https://s2.static.brasilescola.uol.com.br/img/2019/09/primavera.jpg"
+        } else if (escolha == 'N'){
+            imagem = "https://s2.static.brasilescola.uol.com.br/img/2019/09/primavera.jpg"
+        } else {
+            imagem = "https://s1.static.brasilescola.uol.com.br/galeria/images/2d28fe1a3b1ed960bca2e3798803c6b5.jpg"
+        }
+        imagemestacao.src = imagem
+    }
+</script>

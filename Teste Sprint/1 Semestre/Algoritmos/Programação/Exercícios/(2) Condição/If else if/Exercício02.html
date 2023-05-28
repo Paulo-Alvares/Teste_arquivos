@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=f, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira a renda familiar mensal: <input id="renda" onkeyup="analisar()">
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function analisar(){
+        var valor = Number(renda.value)
+        var escrita = 'Classe '
+
+        if(valor <= 250){
+            escrita += 'E'
+        } else if (valor <=900){
+            escrita += 'D'
+        } else if(valor <= 2500){
+            escrita += 'C'
+        } else if(valor <= 9500){
+            escrita += 'B'
+        } else{
+            escrita += 'A'
+        }
+        resultado.innerHTML = escrita
+    }
+</script>

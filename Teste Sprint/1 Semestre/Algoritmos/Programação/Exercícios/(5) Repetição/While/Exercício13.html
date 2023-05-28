@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Qual tabuada gostaria de ver na tela: <select id="opcao">
+        <option value="">-Selecione um valor-</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+    </select><br>
+    Até qual valor você gostaria de ver a multiplicação: <input id="in_valor"><br>
+    <button onclick="ver()">Ver tabuada</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function ver() {
+        var val = Number(in_valor.value)
+        var escolha = Number(opcao.value)
+        var contador = 0
+
+        resultado.innerHTML = ``
+
+        while (contador <= val) {
+            if (contador % 2 == 0) {
+                resultado.innerHTML += `<p style="color: blue;">${escolha} x ${contador} = ${escolha * contador}</p>`
+                contador++
+            } else {
+                resultado.innerHTML += `<p style="color: red;">${escolha} x ${contador} = ${escolha * contador}</p>`
+                contador++
+            }
+        }
+    }
+</script>

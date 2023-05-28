@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Qt cocas na vida" id="in_coca"><br>
+    <button onclick="ver()">Ver quantidade</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function ver(){
+        var contador = 1
+        var coca = Number(in_coca.value)
+
+        resultado.innerHTML = ""
+
+        for(;contador <= coca; contador++){
+            resultado.innerHTML += `<img src="https://trimais.vteximg.com.br/arquivos/ids/1036624-1000-1000/foto_original.jpg?v=637934154636030000" alt="" width="200px">`
+        }
+    }
+</script>

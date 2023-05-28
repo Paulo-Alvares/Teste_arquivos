@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Nome do Produto" id="in_nome">
+    <input placeholder="Preço de Compra" id="in_preco"><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="estoque()">Relatório de Estoque</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    var produtos = []
+    function cadastrar() {
+        var produto = {
+            nome: in_nome.value,
+            preco: Number(in_preco.value)
+        }
+        
+        produtos.push(produto)
+        
+        in_nome.value = ''
+        in_preco.value = ''
+    }
+    
+    function estoque() {
+        var soma = 0
+        var maior = 0;
+        resultado.innerHTML = ''
+        
+        resultado.innerHTML += `Total de produtos: ${produtos.length}<br><br><br>`
+        
+        for (var i = 0; i < produtos.length; i++) {
+            var atual = produtos[i]
+            resultado.innerHTML += `Produto ${i + 1}: ${atual.nome}<br>Preço de compra: R$${atual.preco}. Vender por R$${atual.preco * 1.25}<br><br>`
+        }
+        
+        for (var contador = 0; contador < produtos.length; contador++) {
+            var meta = produtos[contador]
+            if (meta.preco > maior) {
+                maior = meta
+                var menor = meta.preco
+            }
+        }
+        
+        for (var contadora = produtos.length - 1; contadora > 0; contadora--) {
+            var met = produtos[contadora]
+            if (met.preco < menor) {
+                menor = met
+            }
+        }
+
+        for(var cont = 0; cont < produtos.length; cont++){
+            var at = produtos[cont]
+            soma += at.preco
+        }
+
+        resultado.innerHTML += `Produto mais caro:${maior.nome} <br> Produto mais barato:${menor.nome} <br> Soma dos preços de compra dos produtos: ${soma}<br> Média de preço de venda dos produtos:${soma/produtos.length}`
+    }
+</script>

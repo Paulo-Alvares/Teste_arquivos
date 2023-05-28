@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clima</title>
+</head>
+
+<body>
+    Insira a temperatura atual: <input id="temperatura"><br>
+    <button onclick="clima()">Checar Clima</button>
+    <div id="alimentobom"></div>
+    <div id="alimentoruim"></div>
+
+</body>
+
+</html>
+
+<script>
+    function clima(){
+        if(temperatura.value < 10){
+            alimentoruim.innerHTML = ''
+            alimentobom.innerHTML = `<img src="https://www.iped.com.br/_upload/content/2015/03/03/identificar-alimentos-bom-estado.jpg" width="300px">`
+        }else{
+            alimentobom.innerHTML =''
+            alimentoruim.innerHTML = `<img src="https://conteudo.imguol.com.br/c/entretenimento/1a/2018/09/11/pao-estragado-1536706056533_v2_450x450.jpg"width="300px">`
+        }
+    }
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira o valor por grama: <input id="valor"><br>
+    Insira o peso do sorvete(gramas): <input id="gramas"><br>
+    Insira o tipo de cobertura: <input id="cobertura"><br>
+    Insira o tipo do sorvete: <input id="sorvete">
+    <button onclick="calculo()">Calcule o custo do sorvete</button>
+</body>
+
+</html>
+
+<script>
+    function calculo() {
+        var preço = Number(valor.value) * Number(gramas.value)
+
+        if (sorvete.value == 'G') {
+            preço = preço * 1.11
+        } else {
+            preço = preço * 0.90
+        }
+
+        if (cobertura.value != 'C') {
+            preço = preço + (preço * 0.01)
+        }
+
+        if(preço > 10){
+            alerta.innerHTML = `<p style="color: green;">O seu sorvete vai custar R$${preço} e vai comprometer a mesada</p>`
+        }else{
+            alerta.innerHTML = `<p style="color: blue;">Hoje você está maneirando hoje, gastou somente R$${preço}</p>`
+        }
+    }
+</script>

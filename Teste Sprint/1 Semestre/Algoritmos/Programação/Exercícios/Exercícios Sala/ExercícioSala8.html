@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concesionaria</title>
+</head>
+
+<body>
+    
+    Informe seu nome: <input id="nome"><br>
+    Informe o modelo de carro que deseja comprar: <input id="modelo"><br>
+    Informe o valor do carro a ser comprado: <input id="valor"><br>
+    Informe um cupom de desconto: <input id="cupom"><br>
+    <button onclick="comprar()">Efetuar Compra</button>
+    <div id="alerta"></div>
+</body>
+
+</html>
+
+<script>
+    function comprar() {
+        var preço = Number(valor.value)
+        
+        if (modelo.value == ' ') {
+            alert(`Informe o modelo do carro para prosseguir com a compra!`)
+            alerta.innerHTML = ` `
+        }
+
+        if (valor.value < 5000) {
+            alert(`Valor inválido! O carro está barato demais!`)
+            alerta.innerHTML = ` `
+        }
+
+        if (cupom.value == 'CARRO_NOVO') {
+            alert(`Cupom válido! Desconto de 11% aplicado!`)
+            preço = preço * 0.89
+            alerta.innerHTML = `<i style="color: green;"> Olá,${nome.value}! O carro de modelo ${modelo.value}, de valor padrão R$${valor.value}, sairá por R$${preço}</i>`
+
+        } 
+
+        if(cupom.value != 'CARRO_NOVO') {
+            alert(`Cupom inválido! Desconto não será aplicado!`)
+            alerta.innerHTML = `<n style="color: red;">Olá,${nome.value}! O carro de modelo ${modelo.value}, de valor padrão R$${valor.value}, sairá por R$${preço}</n>`
+        }
+
+        if(cupom.value == ' '){
+            alert(`Nenhum cupom aplicado`)
+        }
+    }
+</script>

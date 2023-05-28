@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diário</title>
+</head>
+<body>
+    Registre suas memórias aqui:<input id="memoria"><br>
+    <button onclick="armazenar()">Armazenar Memória</button><br>
+    Suas Memórias
+    <div id="div_armazenamento"></div>
+</body>
+</html>
+<script>
+    function armazenar(){
+        div_armazenamento.innerHTML += memoria.value + '<br>'
+    }
+</script>

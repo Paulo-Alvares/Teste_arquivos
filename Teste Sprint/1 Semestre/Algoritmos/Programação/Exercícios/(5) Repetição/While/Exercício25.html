@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Valor guardado" id="valorguardado"><br>
+    <input placeholder="Valor poupado" id="valorpoupado"><br>
+    <input placeholder="Quantidade de meses" id="qtmeses"><br>
+    <input placeholder="Percentual de juros mensal" id="percentualjuros"><br>
+    <button onclick="poupar()">Vamos Poupar</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function poupar(){
+        var gastinho = Number(valorguardado.value)
+        var guardado = gastinho
+        var poupado = Number(valorpoupado.value)
+        var mes = Number(qtmeses.value)
+        var juros = Number(percentualjuros.value)
+        var jurou = juros
+        var contador = 1
+        var final = guardado
+
+        resultado.innerHTML = ""
+
+        if(guardado == "" || poupado == "" || mes == "" || poupado <= 0 || mes < 10 || juros < 0.5 || juros > 2){
+            if(guardado == ""){
+                alert(`Campo de valor guardado vazio`)
+            }
+
+            if(poupado == ""){
+                alert(`Campo de valor poupado vazio`)
+            }
+
+            if(mes == ""){
+                alert(`Campo de meses vazio`)
+            }
+
+            if(poupado <= 0){
+                alert(`Valor poupado invalido`)
+            }
+
+            if(mes < 10){
+                alert(`Quantidade de meses inferior ao desejado`)
+            }
+
+            if(juros < 0.5){
+                alert(`Juros inferior ao desejado`)
+            }
+
+            if(juros > 2){
+                alert(`Juros superior ao desejado`)
+            }
+        } else {
+            while(contador <= mes){
+                resultado.innerHTML += `Mês ${contador} - saldo inicial = ${guardado.toFixed(2)} saldo final = R$${final.toFixed(2)} <br>`
+                jurou = (guardado * juros) / 100
+                final = guardado + poupado + jurou
+                guardado = final
+                contador++
+            }
+            resultado.innerHTML += `<br><br> Você começou com R$${poupado} <br> Depositou R$${valorguardado.value} #seliga isto é a somatória dos valores poupados <br> E agora você tem: R$${guardado.toFixed(2)-poupado-jurou} #seliga isto o último saldo final <br> Neste período sua conta rendeu R$${final.toFixed(2)-gastinho-poupado-jurou} #seliga isto é a somatória dos juros <br> Sua rentabilidade foi de ${(guardado.toFixed(2)/(contador-Number(valorguardado.value)))*100}% #se liga isto é o rendimento dividido pela soma dos depósitos com o quanto começou, isso tudo multiplicado por 100`
+        }
+    }
+</script>

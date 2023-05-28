@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="jogo">Jogador 1: 0 <br> Jogador 2: 0 <br> Empates: 0 <br><br> Status:</div>
+    <button onclick="jogar()">Jogar!</button>
+</body>
+
+</html>
+
+<script>
+    var vit1 = 0
+    var vit2 = 0
+    var emp = 0
+    var winning = ''
+    
+    function jogar() {
+        var dadinho1 = parseInt(1 + Math.random() * 6)
+        var dadinho2 = parseInt(1 + Math.random() * 6)
+
+        if (dadinho1 > dadinho2) {
+            vit1++
+        } else if (dadinho2 > dadinho1) {
+            vit2++
+        } else {
+            emp++
+        }
+
+        if (vit1 > vit2) {
+            winning = 'O jogador 1 está vencendo'
+        } else if (vit2 > vit1) {
+            winning = 'O jogador 2 está vencendo'
+        } else {
+            winning = 'Jogo empatado'
+        }
+        jogo.innerHTML = `Jogador 1: ${vit1} <br> Jogador 2: ${vit2} <br> Empates: ${emp} <br><br> Status: ${winning}`
+    }
+</script>

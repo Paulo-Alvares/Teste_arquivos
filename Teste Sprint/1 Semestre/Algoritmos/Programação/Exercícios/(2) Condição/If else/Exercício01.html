@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Escola</title>
+</head>
+
+<body>
+    Insira seu nome: <input id="nome"><br>
+    Insira sua idade: <input id="idade"><br>
+    <button onclick="avaliar()">Avaliar Aluno</button>
+</body>
+
+</html>
+
+<script>
+    function avaliar(){
+        if(idade.value >= 18){
+            alert(`${nome.value} vamos tirar a CNH?`)
+        } else{
+            alert(`${nome.value} vai jogar playstation`)
+        }
+    }
+</script>

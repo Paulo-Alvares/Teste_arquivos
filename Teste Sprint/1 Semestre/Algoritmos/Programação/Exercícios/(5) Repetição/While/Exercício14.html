@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Intervalo da musculação" id="diasmusculo"><br>
+    <button onclick="exibir()">Exibir rotina mensal</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function exibir() {
+        var dia = Number(diasmusculo.value)
+        var contador = 2
+
+        resultado.innerHTML = ``
+        resultado.innerHTML += `Dia 1 - Musculação<br>` 
+
+        while (contador <= 30) {
+            if (contador % dia == 0) {
+                resultado.innerHTML += `Dia ${contador+1} - Musculação <br>`
+                contador++
+            } else {
+                resultado.innerHTML += `Dia ${contador} - Comer, dormir, etc <br>`
+                contador++
+            }
+        }
+    }
+</script>

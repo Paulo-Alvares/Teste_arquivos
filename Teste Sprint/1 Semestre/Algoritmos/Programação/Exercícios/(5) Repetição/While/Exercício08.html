@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Número entre 0 e 200" id="numero"><br>
+    <button onclick="viva()">Viva o 7!</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function viva() {
+        var valor = Number(numero.value)
+        var contador = 0
+
+        if (valor < 0 || valor > 200) {
+            alert(`Valor inválido, tente novamente`)
+        } else {
+            while (contador <= valor) {
+                if(contador % 7 == 0){
+                    resultado.innerHTML += `${contador}<br>`
+                    contador = contador + 7
+                }
+            }
+        }
+    }
+</script>

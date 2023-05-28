@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Média de Aluno</title>
+</head>
+<body>
+    Insira a primeira nota: <input id="nota1"><br>
+    Insira a segunda nota: <input id="nota2"><br>
+    <button onclick="media()">Calcular Média</button>
+    <div id="div_calcular"></div>
+</body>
+</html>
+<script>
+    function media(){
+        div_calcular.innerHTML = `Sua média foi de ${(Number(nota1.value) + Number(nota2.value))/2}, onde ${(Number(nota1.value) + Number(nota2.value))/2} é a média aritmética entre as 2 notas`
+    }
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Qual tabuada gostaria de ver: <select id="numero" onchange="calculo()">
+        <option value="">Escolha um</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+    </select>
+    <div id="div_resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function calculo (){
+        var opcao = Number(numero.value);
+        var opcao1 = Number(numero.value) * 1;
+        var opcao2 = Number(numero.value) * 2;
+        var opcao3 = Number(numero.value) * 3;
+        var opcao4 = Number(numero.value) * 4;
+        var opcao5 = Number(numero.value) * 5;
+        var opcao6 = Number(numero.value) * 6;
+        var opcao7 = Number(numero.value) * 7;
+        var opcao8 = Number(numero.value) * 8;
+        var opcao9 = Number(numero.value) * 9;
+        var opcao10 = Number(numero.value) * 10;
+
+        div_resultado.innerHTML = `${opcao} x 1 = ${opcao1} <br> ${opcao} x 2 = ${opcao2} <br> ${opcao} x 3 = ${opcao3} <br> ${opcao} x 4 = ${opcao4} <br> ${opcao} x 5 = ${opcao5} <br> ${opcao} x 6 = ${opcao6} <br> ${opcao} x 7 = ${opcao7} <br> ${opcao} x 8 = ${opcao8} <br> ${opcao} x 9 = ${opcao9} <br> ${opcao} x 10 = ${opcao10}`;
+    }
+</script>

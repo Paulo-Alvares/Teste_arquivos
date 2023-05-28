@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="resultado">Vida do lutador: 1000</div>
+    <img src="https://portaljornaldonorte.com.br/wp-content/uploads/2020/09/571dadc12c3b94df40c354c6424528d3.jpg" id="lutador" style="height: 200px;"><br><br>
+    <button onclick="apanhar()">Apanhar</button><br>
+    <button onclick="ganhar()">Concentrar Força</button>
+</body>
+
+</html>
+
+<script>
+    var vida = 1000;
+
+    function apanhar(){
+        vida = vida - 100
+        resultado.innerHTML = `Vida do lutador: ${vida.toFixed(0)}`
+
+        if(vida <= 0){
+            vida = 0;
+            lutador.src = "https://conteudo.imguol.com.br/c/esporte/4f/2021/01/24/mcgregor-no-chao-do-octogono-apos-ser-nocauteado-por-dustin-poirier-no-ufc-257-1611468558436_v2_4x3.jpg"
+            resultado.innerHTML = `Vida do lutador: Ja era!`
+        }
+    }
+
+    function ganhar(){
+        vida = vida + (vida * 0.05)
+        resultado.innerHTML = `Vida do lutador: ${vida.toFixed(0)}` 
+
+        if(vida <= 0){
+            vida = 0;
+            lutador.src = "https://conteudo.imguol.com.br/c/esporte/4f/2021/01/24/mcgregor-no-chao-do-octogono-apos-ser-nocauteado-por-dustin-poirier-no-ufc-257-1611468558436_v2_4x3.jpg"
+            resultado.innerHTML = `Vida do lutador: Ja era!`
+        }
+    }
+</script>

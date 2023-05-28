@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select id="times" onchange="opcao()">
+        <option value="https://upload.wikimedia.org/wikipedia/pt/b/b4/Corinthians_simbolo.png">Corinthians</option>
+        <option value="http://3.bp.blogspot.com/_B1izLbKhq2c/S2S1-38RJYI/AAAAAAAAAuE/-207BgaC3Qk/w1200-h630-p-k-no-nu/porco.png">Palmeiras</option>
+        <option value="https://www.lance.com.br/galerias/wp-content/uploads/2021/04/4-8.jpg">Santos</option>
+        <option value="https://i.pinimg.com/236x/77/47/56/7747569e5e7f543d13347c62b1a3c6b7.jpg">São Paulo</option>
+    </select>
+    <br>
+    <img src="" id="imagemtime" style="height: 200px;">
+</body>
+
+</html>
+
+<script>
+    function opcao() {
+        imagemtime.src = times.value
+    }
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo Refrigerante</title>
+</head>
+
+<body>
+    Quantos refrigerantes bebe por dia?<br>
+    <input id="qt_refri">
+    <button onclick="calcular()">Quantos Refris?</button>
+    <div id="quantidade"></div>
+    <div id="alternativo"></div>
+    
+</body>
+
+</html>
+<script>
+    function calcular(){
+        var refri = Number(qt_refri.value*365)
+        if (refri > 500){
+        alternativo.innerHTML = `Cuidado com a diabete!`
+        }
+        quantidade.innerHTML = `A quantidade de refrigerantes tomados é de: ${refri} por ano`
+
+    }
+</script>

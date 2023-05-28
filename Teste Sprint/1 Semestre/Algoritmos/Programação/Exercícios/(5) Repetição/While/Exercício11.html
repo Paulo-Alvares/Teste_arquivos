@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Mundiais do seu time" id="qtmundial"><br>
+    <button onclick="ver()">Ver troféus de mundiais FIFA</button>
+    <div id="resultado"></div>
+    <img src="" width="15px">
+</body>
+
+</html>
+
+<script>
+    function ver() {
+        var mundial = Number(qtmundial.value)
+        var contador = 0
+        
+
+        while(contador <= mundial){
+            if(mundial > 0){
+                resultado.innerHTML += `<img src="https://i.pinimg.com/originals/78/30/9a/78309a8af52927e610cebb92d5ac3ddf.png" width="150px"> <br>`
+                contador++
+            } else{
+                resultado.innerHTML = `<img src="https://pbs.twimg.com/media/DElYPxpW0AAbuOJ.jpg" widht="300px">`
+                contador++
+            }
+        }
+    }
+</script>

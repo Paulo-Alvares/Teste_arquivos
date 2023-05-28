@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Quantos depósitos" id="qt_deposito"><br>
+    <input placeholder="Valor do depósito" id="valor_dep"><br>
+    <button onclick="acompanha()">Acompanhar Grana</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function acompanha() {
+        var contador = 1
+        var qt = Number(qt_deposito.value)
+        var dep = Number(valor_dep.value)
+        var valor = dep
+
+        resultado.innerHTML = ''
+
+        for (;contador <= qt; contador++) {
+            resultado.innerHTML += `${contador}º mês: R$${valor.toFixed(2)} <br>`
+            valor = valor + dep
+        }
+
+        resultado.innerHTML += `Total guardado: ${valor-dep}`
+    }
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Número da Sorte" id="in_sorte"><br>
+    <button onclick="sortear()">Testar minha sorte</button>
+</body>
+
+</html>
+
+<script>
+    function sortear() {
+        var valor = Number(in_sorte.value)
+        var mensagem = ""
+        
+        if (valor > 100 || valor < 1) {
+            alert('Número invalido, o valor deve ser menor que 100 ou maior que 0')
+        } else {
+            for(var contador = 1; contador <= 20; contador++) {
+                var sortear = parseInt(Math.random() * 101)
+                
+                if (valor == sortear) {
+                    mensagem = `Muito bem, você é uma pessoa de sorte! Seu número saiu no ${contador}º sorteio`
+                    break
+                } else {
+                    mensagem = `É, você não tem muita sorte em sorteios, pelo visto`
+                }
+            }
+            alert(mensagem)
+        }
+    }
+</script>

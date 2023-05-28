@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Projetos" id="in_projeto">
+    <button onclick="registrar()">Registrar Projeto</button>
+    <button onclick="mostrar()">Mostrar Projetos</button>
+    <div id="resultado"></div>
+    <div id="projetinho"></div>
+</body>
+
+</html>
+
+<script>
+    var projeto = [] 
+    var contador = 0
+    function registrar() {
+        contador++
+        projeto.push(in_projeto.value)
+        var exp 
+        if (contador <= 4) {
+            exp = "Junior"
+        } else if (contador >= 5 && contador <= 12) {
+            exp = `Pleno desde o projeto "${projeto[4]}"`
+        } else {
+            exp = `Sênior desde o projeto "${projeto[12]}"`
+        }
+        resultado.innerHTML = `Você já fez ${contador} projetos. Por isso você é um profissional: ${exp}`
+    }
+
+    function mostrar(){
+        projetinho.innerHTML = ''
+        for(var contadora = projeto.length - 1; contadora >= 0; contadora--){
+            var atual = projeto[contadora]
+            projetinho.innerHTML += `${contadora + 1}-${atual}<br>`
+        }
+    }
+</script>

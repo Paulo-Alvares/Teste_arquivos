@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira quantos pães franceses come por dia: <input id="paes"><br>
+    Insira quantos pacotes de bolacha come por dia: <input id="bolacha"><br>
+    Insira a quantidade de achocolatados por dia: <input id="achocolatado"><br>
+    <button onclick="analisar()">Verificar calorias</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function analisar(){
+        var pao = Number(paes.value) * 50
+        var bol = Number(bolacha.value) * 80
+        var choco = Number(achocolatado.value) * 70
+        var calculo = pao + bol + choco
+        var escrita 
+
+        if(calculo < 200){
+            escrita = `Parabéns, vai sair em forma da quarentena!`
+        } else if(calculo < 400){
+            escrita = `Cuidado, vai ficar mais "fofinho(a)" após quarentena!`
+        } else{
+            escrita = `Bom, acho que muitos não vão te reconhecer após a quarentena`
+        }
+
+        resultado.innerHTML = escrita
+    }
+</script>

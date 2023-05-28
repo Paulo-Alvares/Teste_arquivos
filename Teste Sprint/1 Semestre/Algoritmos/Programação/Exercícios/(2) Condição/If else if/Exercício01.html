@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira sua altura: <input id="altura" onkeyup="resultado()">
+    <div id="analise"></div>
+</body>
+
+</html>
+
+<script>
+    function resultado(){
+        var alt = altura.value
+        var escrita = 'Você pode ser '
+        if(alt <= 1.65){
+            escrita += 'piloto de corrida'
+        }else if(alt <= 1.80){
+            escrita += 'Jogador de futebol'
+        }else{
+            escrita += 'Jogador de vôlei ou basquete'
+        }
+        analise.innerHTML = escrita
+    }
+</script>

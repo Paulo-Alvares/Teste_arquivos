@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Sua Idade" id="in_idade"><br>
+    <button onclick="analisar()">Ver Pontos</button>
+    <div id="div_resultado" style="display: none">
+        Já passou pela infância: <b id="d_infancia"></b><br>
+        Já passou pela adolescência: <b id="d_adolescencia"></b><br>
+        Já é um idoso: <b id="d_idoso"></b><br>
+        Pontos: <b id="d_pontos"></b>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function analisar() {
+        var idade = Number(in_idade.value)
+
+        var infancia = idade > 0 ? true : false
+        var adolescencia = idade > 12 ? true : false
+        var idoso = idade >= 65 ? true : false
+
+        var pontos = 0
+        pontos += infancia ? 10 : 0
+        pontos += adolescencia ? 30 : 0
+        pontos += idoso ? 50 : 0
+
+        div_resultado.style.display = 'block'
+
+        d_infancia.innerHTML = infancia
+        d_adolescencia.innerHTML = adolescencia
+        d_idoso.innerHTML = idoso
+        d_pontos.innerHTML = pontos
+    }
+</script>

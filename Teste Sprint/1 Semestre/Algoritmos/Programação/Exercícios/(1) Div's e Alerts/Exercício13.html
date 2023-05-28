@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salário</title>
+</head>
+<body>
+    Digite seu salário bruto: <input id="salario"><br>
+    <button onclick="alert(`Apesar de seu bruto ser R$${salario.value}, após os descontos, você receberá somente R$${parseFloat(salario.value)-parseFloat(salario.value)*33/100}`)">Calcular Valor Final</button>
+</body>
+</html>

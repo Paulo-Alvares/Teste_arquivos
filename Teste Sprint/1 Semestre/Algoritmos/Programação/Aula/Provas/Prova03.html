@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="pontos1">Jogador: 0</div>
+    <div id="pontos2">Adversario: 0</div>
+    <h1>Baralho restante do jogador:</h1>
+    <div id="jogador1"></div><br>
+    <h1>Baralho restante do adversario:</h1>
+    <div id="jogador2"></div>
+    <button onclick="simular()">Simular Batalha</button>
+    <div id="batalha"></div>
+</body>
+
+</html>
+
+<script>
+    var baralho1 = []
+    var baralho2 = []
+    var ponto1 = 0
+    var ponto2 = 0
+    var compara = []
+
+    for (var i = 0; i < 5; i++) {
+        var sorteio1 = parseInt(1 + Math.random() * 10)
+        compara.push(sorteio1)
+
+        for (var contador = 1; contador < compara.length; contador++) {
+            if (compara[contador] != sorteio1) {
+                break
+            } else {
+                sorteio1 = parseInt(1 + Math.random() * 10)
+            }
+        }
+
+        if (sorteio1 == 1) {
+            jogador1.innerHTML += `<img src="cartas/capitao_america.png" alt="" width="200px">`
+            var capitao = {
+                imagem: `<img src="cartas/capitao_america.png" alt="" width="200px">`,
+                forca: 3,
+                vida: 3
+            }
+            baralho1.push(capitao)
+        } else if (sorteio1 == 2) {
+            jogador1.innerHTML += `<img src="cartas/deadpool.png" alt="" width="200px">`
+            var deadpool = {
+                imagem: `<img src="cartas/deadpool.png" alt="" width="200px">`,
+                forca: 1,
+                vida: 2
+            }
+            baralho1.push(deadpool)
+        } else if (sorteio1 == 3) {
+            jogador1.innerHTML += `<img src="cartas/homem_de_ferro.png" alt="" width="200px">`
+            var homem = {
+                imagem: `<img src="cartas/homem_de_ferro.png" alt="" width="200px">`,
+                forca: 5,
+                vida: 0
+            }
+            baralho1.push(homem)
+        } else if (sorteio1 == 4) {
+            jogador1.innerHTML += `<img src="cartas/mercurio.png" alt="" width="200px">`
+            var mercurio = {
+                imagem: `<img src="cartas/mercurio.png" alt="" width="200px">`,
+                forca: 1,
+                vida: 2
+            }
+            baralho1.push(mercurio)
+        } else if (sorteio1 == 5) {
+            jogador1.innerHTML += `<img src="cartas/mulher_invisivel.png" alt="" width="200px">`
+            var mulher = {
+                imagem: `<img src="cartas/mulher_invisivel.png" alt="" width="200px">`,
+                forca: 2,
+                vida: 2
+            }
+            baralho1.push(mulher)
+        } else if (sorteio1 == 6) {
+            jogador1.innerHTML += `<img src="cartas/sr_fantastico.png" alt="" width="200px">`
+            var fantastico = {
+                imagem: `<img src="cartas/sr_fantastico.png" alt="" width="200px">`,
+                forca: 3,
+                vida: 2
+            }
+            baralho1.push(fantastico)
+        } else if (sorteio1 == 7) {
+            jogador1.innerHTML += `<img src="cartas/thor.png" alt="" width="200px">`
+            var thor = {
+                imagem: `<img src="cartas/thor.png" alt="" width="200px">`,
+                forca: 3,
+                vida: 4
+            }
+            baralho1.push(thor)
+        } else if (sorteio1 == 8) {
+            jogador1.innerHTML += `<img src="cartas/venom.png" alt="" width="200px">`
+            var venom = {
+                imagem: `<img src="cartas/venom.png" alt="" width="200px">`,
+                forca: 3,
+                vida: 1
+            }
+            baralho1.push(venom)
+        } else if (sorteio1 == 9) {
+            jogador1.innerHTML += `<img src="cartas/viuva_negra.png" alt="" width="200px">`
+            var viuva = {
+                imagem: `<img src="cartas/viuva_negra.png" alt="" width="200px">`,
+                forca: 1,
+                vida: 1
+            }
+            baralho1.push(viuva)
+        } else {
+            jogador1.innerHTML += `<img src="cartas/wolverine.png" alt="" width="200px">`
+            var wolverine = {
+                imagem: `<img src="cartas/wolverine.png" alt="" width="200px">`,
+                forca: 2,
+                vida: 3
+            }
+            baralho1.push(wolverine)
+        }
+    }
+
+    for (var i = 0; i < 5; i++) {
+        var sorteio2 = parseInt(1 + Math.random() * 10)
+
+        for (var contador = 0; contador < 100; contador++) {
+            if (compara[contador] != sorteio1) {
+                break
+            } else {
+                sorteio2 = parseInt(1 + Math.random() * 10)
+            }
+        }
+
+        if (sorteio2 == 1) {
+            jogador2.innerHTML += `<img src="cartas/capitao_america.png" alt="" width="200px">`
+            var capitao = {
+                imagem: `<img src="cartas/capitao_america.png" alt="" width="200px">`,
+                forca: 3,
+                vida: 3
+            }
+            baralho2.push(capitao)
+        } else if (sorteio2 == 2) {
+            jogador2.innerHTML += `<img src="cartas/deadpool.png" alt="" width="200px">`
+            var deadpool = {
+                imagem: `<img src="cartas/deadpool.png" alt="" width="200px">`,
+                forca: 1,
+                vida: 2
+            }
+            baralho2.push(deadpool)
+        } else if (sorteio2 == 3) {
+            jogador2.innerHTML += `<img src="cartas/homem_de_ferro.png" alt="" width="200px">`
+            var homem = {
+                imagem:`<img src="cartas/homem_de_ferro.png" alt="" width="200px">`,
+                forca: 5,
+                vida: 0
+            }
+            baralho2.push(homem)
+        } else if (sorteio2 == 4) {
+            jogador2.innerHTML += `<img src="cartas/mercurio.png" alt="" width="200px">`
+            var mercurio = {
+                imagem: `<img src="cartas/mercurio.png" alt="" width="200px">`,
+                forca: 1,
+                vida: 2
+            }
+            baralho2.push(mercurio)
+        } else if (sorteio2 == 5) {
+            jogador2.innerHTML += `<img src="cartas/mulher_invisivel.png" alt="" width="200px">`
+            var mulher = {
+                imagem: `<img src="cartas/mulher_invisivel.png" alt="" width="200px">`,
+                forca: 2,
+                vida: 2
+            }
+            baralho2.push(mulher)
+        } else if (sorteio2 == 6) {
+            jogador2.innerHTML += `<img src="cartas/sr_fantastico.png" alt="" width="200px">`
+            var fantastico = {
+                imagem: `<img src="cartas/sr_fantastico.png" alt="" width="200px">`,
+                forca: 3,
+                vida: 2
+            }
+            baralho2.push(fantastico)
+        } else if (sorteio2 == 7) {
+            jogador2.innerHTML += `<img src="cartas/thor.png" alt="" width="200px">`
+            var thor = {
+                imagem: `<img src="cartas/thor.png" alt="" width="200px">`,
+                forca: 3,
+                vida: 4
+            }
+            baralho2.push(thor)
+        } else if (sorteio2 == 8) {
+            jogador2.innerHTML += `<img src="cartas/venom.png" alt="" width="200px">`
+            var venom = {
+                imagem: `<img src="cartas/venom.png" alt="" width="200px">`,
+                forca: 3,
+                vida: 1
+            }
+            baralho2.push(venom)
+        } else if (sorteio2 == 9) {
+            jogador2.innerHTML += `<img src="cartas/viuva_negra.png" alt="" width="200px">`
+            var viuva = {
+                imagem: `<img src="cartas/viuva_negra.png" alt="" width="200px">`,
+                forca: 1,
+                vida: 1
+            }
+            baralho2.push(viuva)
+        } else {
+            jogador2.innerHTML += `<img src="cartas/wolverine.png" alt="" width="200px">`
+            var wolverine = {
+                imagem: `<img src="cartas/wolverine.png" alt="" width="200px">`,
+                forca: 2,
+                vida: 3
+            }
+            baralho2.push(wolverine)
+        }
+    }
+
+    function simular() {
+
+        if(baralho1.length > 0){
+            baralho1.length[1]
+            batalha.innerHTML += ``
+        }
+
+        if (ponto1 > ponto2) {
+            ponto1++
+        } else {
+            ponto2++
+        }
+    }
+
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <select id="opçao" onchange="escolha()">
+        <option value="que eu leve o amor">Onde houver ódio</option>
+        <option value="que eu leve o perdão">Onde houver ofensa</option>
+        <option value="que eu leve o união">Onde houver discórdia</option>
+        <option value="que eu leve o fé">Onde houver dúvida</option>
+        <option value="que eu leve o verdade">Onde houver erro</option>
+        <option value="que eu leve o esperança">Onde houver desepero</option>
+        <option value="que eu leve o alegria">Onde houver tristeza</option>
+        <option value="que eu leve o luz">Onde houver duvida</option>
+    </select>
+</body>
+
+</html>
+
+<script>
+    function escolha(){
+        var opt = opçao.value
+        alert(`${opt}`)
+    }
+</script>

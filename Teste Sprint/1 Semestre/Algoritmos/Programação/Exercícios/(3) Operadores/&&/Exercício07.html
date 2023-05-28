@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Sua Nota" id="nota"><br>
+    <input placeholder="Sua Frequência" id="frequencia"><br>
+    <button onclick="avaliar()">Avaliar Aluno</button>
+</body>
+
+</html>
+
+<script>
+    function avaliar(){
+        var valor = Number(nota.value)
+        var fr = Number(frequencia.value)
+
+        if(valor >= 6 && fr >= 75){
+            alert(`Parabéns! Aprovado!`)
+        } else{
+            alert(`Infelizmente não foi dessa vez`)
+        }
+    }
+</script>

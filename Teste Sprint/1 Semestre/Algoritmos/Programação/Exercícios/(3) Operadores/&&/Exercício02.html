@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Renda Individual" id="renda">
+    <input placeholder="Renda Familiar" id="rendaf">
+    <button onclick="verificar()">Verificar ajuda</button>
+</body>
+
+</html>
+
+<script>
+    function verificar(){
+        var valori = Number(renda.value)
+        var valorf = Number(rendaf.value)
+
+        if(valori <= 1050 && valorf <= 2100){
+            alert(`Você terá direito`)
+        }else{
+            alert(`Você NÃO terá direito`)
+        }
+    }
+</script>

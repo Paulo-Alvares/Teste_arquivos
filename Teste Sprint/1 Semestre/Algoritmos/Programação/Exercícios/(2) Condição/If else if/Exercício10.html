@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Insira o nome do cliente: <input id="nome"><br>
+    Insira o saldo do cliente: <input id="saldo"><br>
+    <button onclick="analisar()">Verificar Conta</button>
+    <div id="resultado"></div>
+</body>
+
+</html>
+
+<script>
+    function analisar(){
+        var name = nome.value
+        var valor = saldo.value
+        var escrita
+
+        if(valor < 0){
+            escrita = `Com o saldo de ${valor} o cliente ${name} está com saldo devedor`
+        } else if(valor <= 2000){
+            escrita = `Com o saldo de ${valor} o cliente ${name} está com saldo normal`
+        } else if (valor <= 5000){
+            escrita = `Com o saldo de ${valor} o cliente ${name} está com saldo acima da média`
+        } else{
+            escrita = `Com o saldo de ${valor} o cliente ${name} tem perfil de investidor`
+        }
+
+        resultado.innerHTML = escrita
+    }
+</script>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torneira</title>
+</head>
+<body>
+    Quanto tempo a torneira 1 ficou pingando: <input id="torneira1"><br>
+    Quanto tempo a torneira 2 ficou pingando: <input id="torneira2"><br>
+    Quanto tempo a torneira 3 ficou pingando: <input id="torneira3"><br>
+    <button onclick="alert(`Suas 3 torneiras juntas desperdiçaram ${(Number(torneira1.value)+Number(torneira2.value)+Number(torneira3.value))*15} litros de água`)">Clique aqui para calcular</button>
+</body>
+</html>

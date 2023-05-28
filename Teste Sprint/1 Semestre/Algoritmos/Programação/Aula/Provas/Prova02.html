@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naruto</title>
+</head>
+
+<body>
+    <p>Insira os pontos de energia do naruto:</p><input placeholder="Energia" id="in_energia">
+    <p>Insira quantos clones deseja:</p><input placeholder="Clones em Geral" id="in_clone">
+    <p>Insira quantos clones deseja por linha:</p><input placeholder="Clones por Linha" id="in_linha">
+    <button onclick="criar()">Criar Clones</button>
+    <div id="resultado"></div>
+
+</body>
+
+</html>
+
+<script>
+    function criar() {
+        var energia = Number(in_energia.value)
+        var clone = Number(in_clone.value)
+        var qtlinha = Number(in_linha.value)
+        var sobra = energia - (clone * 20)
+        var contador = 0
+
+        resultado.innerHTML = ""
+
+        if (energia < 20 || energia > 5000 || clone <= 0 || clone > 250 || qtlinha <= 0) {
+            alert(`ERRO NA ENTRADA DE DADOS – Energia tem que ser entre 20 e 5.000. Quantidade de Clones tem que ser entre 0 e 250. Quantidade de Clones por linha tem que ser maior que 0`)
+        } else if (energia < clone * 20) {
+            alert(`ERRO, a energia é insuficiente para criar tantos clones`)
+        } else {
+            while (contador < clone) {
+                if (contador % qtlinha == 0) {
+                    resultado.innerHTML += `<br>`
+                }
+                resultado.innerHTML += `<img src="https://preview.redd.it/tudjq02jost71.jpg?auto=webp&s=ed558eeba8ee7c136febe2cd0084d2ab3661b9eb" width="100px">`
+                contador++
+            }
+
+            resultado.innerHTML += `<br><br>Analíse da geração de clones: <br> Energia Inicial: ${energia} <br> Quantidade de Clones: ${clone} <br> Sobra de Energia: ${sobra}`
+
+            if (sobra > 1000 || clone > 50 && sobra >= energia * 0.2) {
+                resultado.innerHTML += `<br><br> PROVAVELMENTE VOCE VAI GANHAR`
+            } else if (sobra > 500 || clone > 20 && clone < 50 && sobra >= energia * 0.1) {
+                resultado.innerHTML += `<br><br> A LUTA VAI SER MUITO BOA`
+            } else {
+                resultado.innerHTML += `<br><br> TORÇA PARA O ADVERSÁRIO SER FRAQUINHO`
+            }
+        }
+    }
+</script>
